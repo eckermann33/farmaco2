@@ -1,0 +1,2391 @@
+<title>Farmacologia Respiratória</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root{
+    --bg:#EDF2F4;
+    --surface:#FFFFFF;
+    --surface-2:#F5F9FA;
+    --ink:#0F2129;
+    --ink-2:#456069;
+    --ink-3:#7A949E;
+    --line:#D3E0E5;
+    --line-2:#E6EEF1;
+    --accent:#09587F;
+    --accent-2:#0B7FA8;
+    --accent-soft:#E0EFF6;
+    --ok:#17704A;
+    --ok-soft:#E1F3EA;
+    --ok-line:#9CD2B8;
+    --bad:#AC3225;
+    --bad-soft:#FBE9E6;
+    --bad-line:#EBAA9F;
+    --warn:#8A5A0B;
+    --warn-soft:#FBF0DB;
+    --warn-line:#E6C68A;
+    /* código de cores dos inaladores */
+    --c-saba:#1B6FC4;
+    --c-laba:#1E7A4F;
+    --c-lama:#6B4A9E;
+    --c-ics:#A8551A;
+    --c-xan:#8A6D1F;
+    --c-bio:#9B2C6F;
+    --radius:10px;
+    --maxw:820px;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0B1418;
+      --surface:#121E24;
+      --surface-2:#17262D;
+      --ink:#E6EFF2;
+      --ink-2:#A1B8C1;
+      --ink-3:#718B96;
+      --line:#23373F;
+      --line-2:#1B2C33;
+      --accent:#5BB6DE;
+      --accent-2:#79C9EA;
+      --accent-soft:#0E2E3C;
+      --ok:#64CB94;
+      --ok-soft:#102E22;
+      --ok-line:#2C6349;
+      --bad:#F09285;
+      --bad-soft:#33191A;
+      --bad-line:#6E3733;
+      --warn:#E4B564;
+      --warn-soft:#31250F;
+      --warn-line:#6A5322;
+      --c-saba:#6FB4F0;
+      --c-laba:#63C395;
+      --c-lama:#B191E0;
+      --c-ics:#E09A63;
+      --c-xan:#D6BC6A;
+      --c-bio:#E27CB6;
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0B1418;
+    --surface:#121E24;
+    --surface-2:#17262D;
+    --ink:#E6EFF2;
+    --ink-2:#A1B8C1;
+    --ink-3:#718B96;
+    --line:#23373F;
+    --line-2:#1B2C33;
+    --accent:#5BB6DE;
+    --accent-2:#79C9EA;
+    --accent-soft:#0E2E3C;
+    --ok:#64CB94;
+    --ok-soft:#102E22;
+    --ok-line:#2C6349;
+    --bad:#F09285;
+    --bad-soft:#33191A;
+    --bad-line:#6E3733;
+    --warn:#E4B564;
+    --warn-soft:#31250F;
+    --warn-line:#6A5322;
+    --c-saba:#6FB4F0;
+    --c-laba:#63C395;
+    --c-lama:#B191E0;
+    --c-ics:#E09A63;
+    --c-xan:#D6BC6A;
+    --c-bio:#E27CB6;
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:18px;padding-block:0 64px}
+
+  h1,h2,h3,h4,.ui{font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+  h1{font-size:clamp(28px,6.2vw,42px);line-height:1.1;font-weight:800;letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance}
+  h2{font-size:clamp(21px,4.2vw,27px);font-weight:700;letter-spacing:-.01em;margin:0 0 4px;text-wrap:balance}
+  h3{font-size:18px;font-weight:700;margin:26px 0 8px;text-wrap:balance}
+  h4{font-size:15px;font-weight:700;margin:18px 0 6px;letter-spacing:.01em}
+  p{margin:0 0 14px}
+  a{color:var(--accent);text-underline-offset:2px}
+  strong{font-weight:600}
+  code,.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+  code{font-size:.88em;background:var(--surface-2);border:1px solid var(--line-2);border-radius:5px;padding:1px 5px}
+
+  /* ---------- barra fixa ---------- */
+  .topbar{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:40;
+    background:color-mix(in srgb,var(--surface) 97%,transparent);
+    backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-in{max-width:var(--maxw);margin:0 auto;padding:9px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .brandmark{font-family:"Archivo",sans-serif;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+  .placar{display:flex;gap:14px;align-items:center;margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+  .placar b{color:var(--ink);font-weight:600}
+  .placar .acertos{color:var(--ok)}
+  .placar .erros{color:var(--bad)}
+  .barra{height:3px;background:var(--line-2)}
+  .barra > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .3s ease}
+
+  /* ---------- navegação ---------- */
+  nav.mapa{margin:22px 0 30px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden}
+  nav.mapa .cab{padding:11px 16px;border-bottom:1px solid var(--line-2);font-family:"Archivo",sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+  nav.mapa ol{list-style:none;margin:0;padding:6px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:2px}
+  nav.mapa a{display:flex;gap:9px;align-items:baseline;padding:7px 10px;border-radius:7px;text-decoration:none;color:var(--ink);font-family:"Archivo",sans-serif;font-size:14px}
+  nav.mapa a:hover{background:var(--accent-soft)}
+  nav.mapa a span{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);min-width:20px}
+
+  /* ---------- blocos ---------- */
+  section.mod{margin:0 0 10px;padding:30px 0 6px;border-top:1px solid var(--line);scroll-margin-top:70px}
+  section.mod:first-of-type{border-top:none}
+  .eyebrow{font-family:"Archivo",sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+  .dek{color:var(--ink-2);font-size:16px;margin:0 0 20px;font-style:italic}
+
+  ul,ol.num{padding-left:22px;margin:0 0 16px}
+  li{margin:0 0 7px}
+  ol.cascata{counter-reset:s;list-style:none;padding:0;margin:0 0 18px}
+  ol.cascata li{counter-increment:s;position:relative;padding:0 0 0 38px;margin:0 0 12px}
+  ol.cascata li::before{
+    content:counter(s);position:absolute;left:0;top:2px;
+    width:25px;height:25px;border-radius:50%;
+    background:var(--accent-soft);color:var(--accent);
+    font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;
+    display:grid;place-items:center;
+  }
+
+  .box{border:1px solid var(--line);border-left:3px solid var(--ink-3);background:var(--surface);border-radius:var(--radius);padding:14px 16px;margin:0 0 18px}
+  .box p:last-child{margin-bottom:0}
+  .box .rot{font-family:"Archivo",sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px;color:var(--ink-3)}
+  .box.porque{border-left-color:var(--accent);background:var(--accent-soft)}
+  .box.porque .rot{color:var(--accent)}
+  .box.erro{border-left-color:var(--bad);background:var(--bad-soft)}
+  .box.erro .rot{color:var(--bad)}
+  .box.alerta{border-left-color:var(--warn);background:var(--warn-soft)}
+  .box.alerta .rot{color:var(--warn)}
+  .box.prova{border-left-color:var(--ok);background:var(--ok-soft)}
+  .box.prova .rot{color:var(--ok)}
+
+  blockquote{margin:0 0 18px;padding:2px 0 2px 18px;border-left:3px solid var(--line);color:var(--ink-2);font-size:18px;font-style:italic}
+
+  .tabwrap{overflow-x:auto;margin:0 0 20px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-family:"Archivo",sans-serif;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}
+  thead th{background:var(--surface-2);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-weight:700;border-bottom:1px solid var(--line);position:sticky;top:0}
+  tbody tr:last-child td{border-bottom:none}
+  td .mono{font-size:13px;font-variant-numeric:tabular-nums}
+
+  .tag{display:inline-block;font-family:"Archivo",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:4px;border:1px solid currentColor;white-space:nowrap}
+  .t-saba{color:var(--c-saba)} .t-laba{color:var(--c-laba)} .t-lama{color:var(--c-lama)}
+  .t-ics{color:var(--c-ics)} .t-xan{color:var(--c-xan)} .t-bio{color:var(--c-bio)}
+
+  .legenda{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+
+  /* ---------- quiz ---------- */
+  .quiz{margin:26px 0 8px}
+  .quiz-cab{display:flex;align-items:baseline;gap:10px;margin:0 0 12px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+  .quiz-cab h4{margin:0;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+  .quiz-cab .cont{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+  .q{border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:15px 16px;margin:0 0 12px}
+  .q .num{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);display:block;margin-bottom:5px}
+  .q .enun{font-size:16.5px;margin:0 0 13px}
+  .q .enun b{font-weight:600}
+  .ops{display:flex;flex-direction:column;gap:7px}
+  .op{
+    display:flex;gap:11px;align-items:flex-start;width:100%;text-align:left;
+    font-family:"Archivo",sans-serif;font-size:14.5px;line-height:1.45;
+    background:var(--surface-2);color:var(--ink);
+    border:1px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;
+    transition:background .14s,border-color .14s;
+  }
+  .op:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+  .op:disabled{cursor:default}
+  .op .letra{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;color:var(--ink-3);min-width:15px;padding-top:1px}
+  .op:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .op.certa{background:var(--ok-soft);border-color:var(--ok-line);color:var(--ink)}
+  .op.certa .letra{color:var(--ok)}
+  .op.errada{background:var(--bad-soft);border-color:var(--bad-line);color:var(--ink)}
+  .op.errada .letra{color:var(--bad)}
+  .op .marca{margin-left:auto;font-family:"Archivo",sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding-top:2px;white-space:nowrap}
+  .op.certa .marca{color:var(--ok)}
+  .op.errada .marca{color:var(--bad)}
+
+  .fb{margin-top:12px;border-radius:8px;padding:12px 14px;font-size:15.5px;border:1px solid var(--line)}
+  .fb .veredito{font-family:"Archivo",sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .fb.acerto{background:var(--ok-soft);border-color:var(--ok-line)}
+  .fb.acerto .veredito{color:var(--ok)}
+  .fb.erro{background:var(--bad-soft);border-color:var(--bad-line)}
+  .fb.erro .veredito{color:var(--bad)}
+  .fb p{margin:0 0 8px}
+  .fb p:last-child{margin:0}
+
+  /* ---------- casos ---------- */
+  .caso{border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:0;margin:0 0 26px;overflow:hidden}
+  .caso > header{padding:14px 17px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+  .caso h3{margin:0;font-size:17px}
+  .caso .cenario{font-family:"Archivo",sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:0 0 4px}
+  .caso .corpo{padding:16px 17px 4px}
+  .caso .vinheta{font-size:16.5px}
+  .ficha{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:8px;overflow:hidden;margin:0 0 16px}
+  .ficha div{background:var(--surface);padding:8px 10px}
+  .ficha dt{font-family:"Archivo",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin:0 0 2px}
+  .ficha dd{margin:0;font-family:"IBM Plex Mono",monospace;font-size:13.5px;font-variant-numeric:tabular-nums}
+
+  /* ---------- controles ---------- */
+  .controles{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}
+  .btn{
+    font-family:"Archivo",sans-serif;font-size:13.5px;font-weight:600;
+    background:var(--surface);color:var(--ink);border:1px solid var(--line);
+    border-radius:7px;padding:8px 14px;cursor:pointer;
+  }
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .btn.forte{background:var(--accent);color:#fff;border-color:var(--accent)}
+  :root[data-theme="dark"] .btn.forte,:root:not([data-theme="light"]) .btn.forte{color:#08222E}
+  @media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .btn.forte{color:#fff}}
+  .btn.forte:hover{opacity:.9;color:#fff}
+  :root[data-theme="dark"] .btn.forte:hover{color:#08222E}
+
+  .resultado{margin:18px 0 0;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:16px 17px}
+  .resultado .linha{display:flex;justify-content:space-between;gap:12px;font-family:"Archivo",sans-serif;font-size:14px;padding:6px 0;border-bottom:1px dashed var(--line-2)}
+  .resultado .linha:last-child{border-bottom:none}
+  .resultado .linha b{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+
+  /* ---------- referências ---------- */
+  .refs{list-style:none;padding:0;counter-reset:r}
+  .refs li{counter-increment:r;position:relative;padding-left:32px;margin-bottom:14px;font-size:15px;line-height:1.5}
+  .refs li::before{content:counter(r) ".";position:absolute;left:0;top:0;font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-3)}
+  .refs a{word-break:break-word}
+
+  footer.pe{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink-3);font-size:14px}
+
+  @media (max-width:520px){
+    body{font-size:16px}
+    .q .enun{font-size:15.5px}
+    nav.mapa ol{grid-template-columns:1fr}
+    .placar{gap:10px;font-size:11.5px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <span class="brandmark">Farmaco Respiratória</span>
+    <div class="placar" aria-live="polite">
+      <span>respondidas <b id="p-resp">0</b>/<b id="p-tot">0</b></span>
+      <span class="acertos">✓ <b id="p-ok">0</b></span>
+      <span class="erros">✗ <b id="p-bad">0</b></span>
+      <span>aproveitamento <b id="p-pct">—</b></span>
+    </div>
+  </div>
+  <div class="barra"><i id="p-barra"></i></div>
+</div>
+
+<div class="wrap">
+
+  <header style="padding-block:34px 6px">
+    <p class="eyebrow">Aula do Prof. Dr. Rodrigo Moreira C. Pinto · 18 slides expandidos</p>
+    <h1>Farmacologia do Sistema Respiratório</h1>
+    <p class="dek">Asma, DPOC, crise asmática, anafilaxia, surfactantes e tosse — com o porquê de cada fármaco, casos clínicos comentados e 116 questões que corrigem na hora.</p>
+    <div class="box porque">
+      <p class="rot">Como usar</p>
+      <p>Cada módulo termina com uma <strong>checagem rápida</strong>. Clique na alternativa: ela fica verde se você acertou, vermelha se errou, e a explicação aparece embaixo — inclusive dizendo <em>por que</em> as outras estão erradas. O placar lá em cima conta tudo e fica salvo no navegador. No fim tem 12 casos clínicos e um simulado misto.</p>
+    </div>
+    <div class="legenda">
+      <span class="tag t-saba">SABA — alívio</span>
+      <span class="tag t-laba">LABA — longa duração</span>
+      <span class="tag t-lama">LAMA — antimuscarínico</span>
+      <span class="tag t-ics">CI — corticoide inalatório</span>
+      <span class="tag t-xan">Metilxantina</span>
+      <span class="tag t-bio">Biológico</span>
+    </div>
+  </header>
+
+  <nav class="mapa" aria-label="Sumário">
+    <p class="cab">Mapa da aula</p>
+    <ol>
+      <li><a href="#m1"><span>01</span>A asma em três camadas</a></li>
+      <li><a href="#m2"><span>02</span>Fase imediata × fase tardia</a></li>
+      <li><a href="#m3"><span>03</span>Patogênese Th2 e remodelamento</a></li>
+      <li><a href="#m4"><span>04</span>Agonistas β₂</a></li>
+      <li><a href="#m5"><span>05</span>Antimuscarínicos</a></li>
+      <li><a href="#m6"><span>06</span>Metilxantinas</a></li>
+      <li><a href="#m7"><span>07</span>Antileucotrienos</a></li>
+      <li><a href="#m8"><span>08</span>Biológicos</a></li>
+      <li><a href="#m9"><span>09</span>Glicocorticoides</a></li>
+      <li><a href="#m10"><span>10</span>Escalonamento: slide × GINA</a></li>
+      <li><a href="#m11"><span>11</span>Crise asmática grave</a></li>
+      <li><a href="#m12"><span>12</span>Anafilaxia e angioedema</a></li>
+      <li><a href="#m13"><span>13</span>DPOC</a></li>
+      <li><a href="#m14"><span>14</span>Asma × DPOC</a></li>
+      <li><a href="#m15"><span>15</span>Surfactantes e tosse</a></li>
+      <li><a href="#m16"><span>16</span>Tabelões de consulta</a></li>
+      <li><a href="#casos"><span>★</span>12 casos clínicos</a></li>
+      <li><a href="#simulado"><span>★</span>Simulado misto</a></li>
+      <li><a href="#pegadinhas"><span>!</span>Pegadinhas de prova</a></li>
+      <li><a href="#refs"><span>§</span>Referências (ABNT)</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ 01 ============ -->
+  <section class="mod" id="m1">
+    <p class="eyebrow">Módulo 01</p>
+    <h2>A asma em três camadas</h2>
+    <p class="dek">Doença crônica mais comum na infância nos países desenvolvidos — e a prevalência e a gravidade seguem subindo.</p>
+
+    <p>A definição que cai em prova não é "falta de ar que vai e volta". A asma é a sobreposição de <strong>três fenômenos</strong>, e cada classe de fármaco ataca uma camada diferente:</p>
+
+    <ol class="cascata">
+      <li><strong>Inflamação crônica das vias aéreas</strong> — o substrato. É o que os glicocorticoides tratam. Se você só broncodilata, essa camada continua corroendo o brônquio.</li>
+      <li><strong>Hiper-reatividade brônquica</strong> — o brônquio responde com broncoespasmo a estímulos que não fariam nada num pulmão normal (ar frio, fumaça, exercício, riso). É <em>consequência</em> da inflamação e da perda de epitélio.</li>
+      <li><strong>Obstrução reversível ao fluxo aéreo</strong> — o achado funcional. Reversível é a palavra-chave: é ela que separa asma de DPOC na espirometria.</li>
+    </ol>
+
+    <div class="box porque">
+      <p class="rot">Por que isso importa</p>
+      <p>Essas três camadas explicam a lógica inteira do tratamento. O <strong>β₂-agonista alivia a camada 3</strong> (relaxa o músculo liso) e não toca nas camadas 1 e 2 — por isso um paciente pode estar "bem" usando bombinha azul todo dia enquanto a doença piora silenciosamente. O <strong>corticoide ataca a camada 1</strong> e, por tabela, reduz a 2 e a 3. É por isso que o corticoide inalatório — e não o salbutamol — é o pilar do tratamento.</p>
+    </div>
+
+    <p>A forma mais grave, a <strong>asma grave aguda</strong> (historicamente chamada de <em>estado de mal asmático</em>), cursa com hipoxemia, pode ser fatal e exige hospitalização imediata. Ela tem módulo próprio aqui (11).</p>
+
+    <div class="box alerta">
+      <p class="rot">Número que se decora</p>
+      <p>No Brasil, entre 2008 e 2021 houve queda expressiva de internações (205.392 → 55.009) e óbitos (822 → 327) por asma no SUS — mas isso ainda é <strong>cerca de uma morte por dia</strong> e mais de 55 mil internações por ano por uma doença tratável (PINHEIRO et al., 2024).</p>
+    </div>
+
+    <div class="quiz" data-tema="m1"></div>
+  </section>
+
+  <!-- ============ 02 ============ -->
+  <section class="mod" id="m2">
+    <p class="eyebrow">Módulo 02</p>
+    <h2>As duas fases da crise asmática</h2>
+    <p class="dek">Uma crise alérgica típica tem dois picos separados por horas — e cada pico responde a fármacos diferentes.</p>
+
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>&nbsp;</th><th>Fase imediata</th><th>Fase tardia</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Quando</strong></td><td class="mono">0–2 h após o alérgeno</td><td class="mono">4–8 h após o alérgeno</td></tr>
+          <tr><td><strong>Mecanismo</strong></td><td>Broncoespasmo agudo por espasmo da musculatura lisa</td><td>Reação inflamatória progressiva com lesão epitelial</td></tr>
+          <tr><td><strong>Células</strong></td><td>Mastócito (degranulação imediata via IgE)</td><td>Linfócitos Th2 e eosinófilos ativados</td></tr>
+          <tr><td><strong>Mediadores</strong></td><td>Histamina, prostaglandina D₂, cisteinil-leucotrienos (LTC₄/D₄/E₄); LTB₄ como fator quimiotático</td><td>IL-4, IL-5, IL-13, proteínas granulares do eosinófilo (MBP, ECP)</td></tr>
+          <tr><td><strong>O que reverte</strong></td><td>Agonistas β₂, antagonistas de CysLT, teofilina</td><td><strong>Glicocorticoides</strong> (e só eles, de verdade)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box alerta">
+      <p class="rot">Cuidado com o LTB₄</p>
+      <p>O slide lista histamina, <strong>LTB₄</strong> e PGD₂ como mediadores da fase imediata. Guarde a nuance clássica do Rang &amp; Dale: o LTB₄ é <strong>quimiotático</strong> (chama neutrófilo e eosinófilo para o local), enquanto os <strong>espasmogênicos</strong> — os que de fato contraem o músculo liso — são a histamina, a PGD₂ e os <strong>cisteinil-leucotrienos LTC₄, LTD₄ e LTE₄</strong>. Isso explica por que o montelucaste bloqueia o receptor <strong>CysLT₁</strong> (dos cisteinil-leucotrienos) e não o receptor de LTB₄.</p>
+    </div>
+
+    <div class="box prova">
+      <p class="rot">O pulo do gato clínico</p>
+      <p>A fase tardia é o motivo de a crise "voltar" horas depois de o paciente ter melhorado com a bombinha no pronto-socorro. É por isso que <strong>corticoide sistêmico faz parte do tratamento da crise</strong>, mesmo quando o paciente já saiu chiando menos: você está tratando um pico que ainda nem aconteceu.</p>
+    </div>
+
+    <div class="quiz" data-tema="m2"></div>
+  </section>
+
+  <!-- ============ 03 ============ -->
+  <section class="mod" id="m3">
+    <p class="eyebrow">Módulo 03</p>
+    <h2>Patogênese Th2 e remodelamento brônquico</h2>
+    <p class="dek">Onde exatamente o glicocorticoide entra na cascata — e o que sobra quando ele não entra.</p>
+
+    <h3>A cascata alérgica</h3>
+    <ol class="cascata">
+      <li>O <strong>alérgeno</strong> é capturado por <strong>células dendríticas</strong> em um indivíduo geneticamente suscetível (atopia).</li>
+      <li>A dendrítica apresenta o antígeno ao <strong>linfócito T CD4⁺</strong>, que se diferencia em <strong>Th2</strong>.</li>
+      <li>O Th2 secreta as citocinas que definem a doença:
+        <ul>
+          <li><strong>IL-4 e IL-13</strong> → fazem o linfócito B trocar de classe e produzir <strong>IgE</strong>; a IL-13 ainda estimula muco e hiper-reatividade.</li>
+          <li><strong>IL-5</strong> → maturação, recrutamento e sobrevida do <strong>eosinófilo</strong>.</li>
+          <li>Indução de <strong>receptores de IgE (FcεRI)</strong> na superfície do mastócito.</li>
+        </ul>
+      </li>
+      <li>A IgE se fixa ao mastócito. Na reexposição, o alérgeno faz <strong>ligação cruzada</strong> de duas IgE → degranulação → fase imediata.</li>
+      <li>Eosinófilos ativados liberam proteínas catiônicas (MBP, ECP) que <strong>descamam o epitélio</strong> → fase tardia e cronificação.</li>
+    </ol>
+
+    <div class="box porque">
+      <p class="rot">Por que o corticoide é o pilar</p>
+      <p>Os glicocorticoides inibem a <strong>transcrição das citocinas Th2 (IL-4, IL-5, IL-13)</strong>. Ou seja, eles agem <em>a montante</em> — desligam a fábrica, não o produto. Nenhuma outra classe faz isso: β₂ relaxa músculo, montelucaste bloqueia um receptor, teofilina inibe uma enzima. Só o corticoide desliga a ativação do linfócito T e a resposta inflamatória das vias aéreas.</p>
+    </div>
+
+    <h3>O bronquíolo asmático crônico — o que mudou na parede</h3>
+    <p>Na asma crônica grave, a histologia mostra <strong>remodelamento</strong>, e cada achado tem uma tradução funcional:</p>
+
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>Achado histológico</th><th>Consequência funcional</th></tr></thead>
+        <tbody>
+          <tr><td>Músculo liso hipertrofiado e hiperplásico</td><td>Broncoconstrição mais intensa para o mesmo estímulo</td></tr>
+          <tr><td>Membrana basal espessada (fibrose subepitelial)</td><td>Obstrução que deixa de ser totalmente reversível</td></tr>
+          <tr><td>Infiltrado de eosinófilos e mononucleares</td><td>Inflamação persistente mesmo fora das crises</td></tr>
+          <tr><td>Tampão de muco com células epiteliais descamadas</td><td>Obstrução mecânica; principal achado nas mortes por asma</td></tr>
+          <tr><td>Edema de parede e vasos dilatados</td><td>Reduz o calibre da via aérea; alvo da ação vascular do corticoide</td></tr>
+          <tr><td><strong>Perda de epitélio</strong></td><td>Expõe receptores de irritantes e <strong>fibras C</strong> → amplifica a hiper-reatividade</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box prova">
+      <p class="rot">Amarrando</p>
+      <p>A perda de epitélio fecha um círculo vicioso: inflamação → descamação → nervos expostos → hiper-reatividade → mais broncoespasmo → mais inflamação. Tratar cedo com corticoide inalatório é o que quebra o ciclo antes de a fibrose subepitelial tornar a obstrução irreversível.</p>
+    </div>
+
+    <div class="quiz" data-tema="m3"></div>
+  </section>
+
+  <!-- ============ 04 ============ -->
+  <section class="mod" id="m4">
+    <p class="eyebrow">Módulo 04 · <span class="tag t-saba">SABA</span> <span class="tag t-laba">LABA</span></p>
+    <h2>Broncodilatadores: agonistas β₂-adrenérgicos</h2>
+    <p class="dek">A classe que alivia rápido e não trata nada.</p>
+
+    <h3>Mecanismo</h3>
+    <p>O receptor β₂ é acoplado à <strong>proteína Gs</strong>. Agonista → ativa <strong>adenilil ciclase</strong> → ↑ <strong>AMPc</strong> intracelular → ativa a <strong>PKA</strong> → fosforila a quinase da cadeia leve de miosina (inativando-a) e reduz o Ca²⁺ livre → <strong>relaxamento do músculo liso brônquico</strong>. Efeitos adicionais: inibem a liberação de mediadores dos mastócitos e aumentam o clearance mucociliar.</p>
+
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>&nbsp;</th><th>Curta ação (SABA)</th><th>Longa ação (LABA)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Exemplos</strong></td><td>Salbutamol, terbutalina, fenoterol</td><td>Salmeterol, formoterol, vilanterol, indacaterol</td></tr>
+          <tr><td><strong>Via</strong></td><td>Inalatória (IV no mal asmático)</td><td>Inalatória</td></tr>
+          <tr><td><strong>Início</strong></td><td class="mono">3–5 min (pico em ~30 min)</td><td class="mono">Formoterol 1–3 min · Salmeterol 10–20 min</td></tr>
+          <tr><td><strong>Duração</strong></td><td class="mono">3–6 h</td><td class="mono">12–24 h</td></tr>
+          <tr><td><strong>Como se usa</strong></td><td>"Conforme a necessidade" (resgate)</td><td>Regularmente, 2×/dia, <strong>sempre com corticoide inalatório</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box porque">
+      <p class="rot">Por que o formoterol é especial</p>
+      <p>O formoterol é o único LABA com <strong>início tão rápido quanto o do salbutamol</strong> (1–3 min) e duração longa. Essa combinação é o que permitiu o conceito de <strong>resgate anti-inflamatório</strong>: uma bombinha de <strong>corticoide + formoterol</strong> usada "quando precisar" alivia na hora <em>e</em> entrega corticoide no mesmo puff. O salmeterol não serve para resgate porque é um agonista parcial de início lento.</p>
+    </div>
+
+    <h3>Efeitos adversos — todos explicáveis pelo β₂ fora do pulmão</h3>
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>Efeito</th><th>Onde está o β₂</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Tremor fino de extremidades</strong> (o mais comum)</td><td>Músculo esquelético</td></tr>
+          <tr><td><strong>Taquicardia, palpitação, arritmia</strong></td><td>Vasodilatação periférica → taquicardia reflexa + estímulo direto de β₁ cardíaco em doses altas</td></tr>
+          <tr><td><strong>Hipocalemia</strong></td><td>β₂ estimula a Na⁺/K⁺-ATPase → K⁺ entra na célula. Some com diurético ou corticoide = risco de arritmia</td></tr>
+          <tr><td>Hiperglicemia e aumento de lactato</td><td>Glicogenólise hepática e muscular</td></tr>
+          <tr><td>Cefaleia, cãibra, inquietação</td><td>Sistêmico</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box erro">
+      <p class="rot">Erro clínico comum</p>
+      <p><strong>LABA isolado na asma mata.</strong> Monoterapia com salmeterol sem corticoide inalatório aumentou exacerbações graves e mortes relacionadas à asma (estudo SMART), o que gerou o <em>boxed warning</em> do FDA. Os grandes estudos de segurança posteriores mostraram que a combinação fixa CI+LABA é segura — o alerta foi retirado das combinações em 2017 —, mas a regra permanece: <strong>na asma, LABA só dentro de um dispositivo que também contém corticoide</strong>. Na DPOC, ao contrário, LABA isolado é perfeitamente aceitável.</p>
+    </div>
+
+    <div class="quiz" data-tema="m4"></div>
+  </section>
+
+  <!-- ============ 05 ============ -->
+  <section class="mod" id="m5">
+    <p class="eyebrow">Módulo 05 · <span class="tag t-lama">LAMA / SAMA</span></p>
+    <h2>Antagonistas muscarínicos</h2>
+    <p class="dek">Bloquear a acetilcolina para tirar o "freio de mão" colinérgico do brônquio.</p>
+
+    <p>O tônus broncoconstritor basal é mantido pelo <strong>vago</strong>, via acetilcolina em receptores <strong>M₃</strong> do músculo liso e das glândulas submucosas. Bloqueá-los produz broncodilatação e <strong>redução da secreção de muco</strong>.</p>
+
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>Fármaco</th><th>Perfil</th><th>Início / duração</th><th>Uso preferencial</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Ipratrópio</strong> (SAMA)</td><td>Derivado <strong>quaternário</strong> da atropina; <strong>não discrimina subtipos</strong> muscarínicos (M₁, M₂, M₃)</td><td class="mono">~30 min / 3–5 h</td><td>Crise (junto com SABA) e DPOC</td></tr>
+          <tr><td><strong>Tiotrópio</strong> (LAMA)</td><td>Dissocia lentamente do M₃ → seletividade <em>cinética</em> por M₃</td><td class="mono">Variável / ~24 h</td><td>DPOC de manutenção; asma como add-on</td></tr>
+          <tr><td>Glicopirrônio, umeclidínio, aclidínio</td><td>LAMA modernos, em geral 1×/dia</td><td class="mono">~24 h</td><td>DPOC</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box porque">
+      <p class="rot">Por que "quaternário" importa</p>
+      <p>A atropina é uma amina terciária: atravessa membranas e a barreira hematoencefálica, dando efeitos centrais e sistêmicos. O ipratrópio é <strong>quaternário — carga positiva permanente</strong>, portanto pouco absorvido pela mucosa e praticamente sem penetração no SNC. É exatamente por isso que ele é <strong>muito bem tolerado</strong> mesmo em nebulização repetida. Mesma lógica vale para o tiotrópio.</p>
+    </div>
+
+    <div class="box alerta">
+      <p class="rot">Efeitos adversos que ainda aparecem</p>
+      <p>Boca seca (o mais comum), gosto amargo, retenção urinária em homem com hiperplasia prostática e <strong>glaucoma agudo de ângulo fechado</strong> quando a névoa da nebulização escapa para os olhos — daí a orientação de usar máscara bem ajustada ou bocal em paciente com glaucoma.</p>
+    </div>
+
+    <div class="box prova">
+      <p class="rot">Detalhe fino do M₂</p>
+      <p>Existe um autorreceptor <strong>M₂ pré-sináptico</strong> que <em>inibe</em> a liberação de acetilcolina — é um freio fisiológico. Um antagonista não seletivo como o ipratrópio bloqueia também esse M₂, liberando mais ACh e antagonizando parcialmente o próprio efeito. A dissociação lenta do tiotrópio do M₃ (e rápida do M₂) contorna esse problema.</p>
+    </div>
+
+    <div class="quiz" data-tema="m5"></div>
+  </section>
+
+  <!-- ============ 06 ============ -->
+  <section class="mod" id="m6">
+    <p class="eyebrow">Módulo 06 · <span class="tag t-xan">Metilxantina</span></p>
+    <h2>Teofilina e aminofilina</h2>
+    <p class="dek">O fármaco mais perigoso da aula — e o que mais rende questão de interação medicamentosa.</p>
+
+    <p>A <strong>aminofilina</strong> é o sal de teofilina com etilenodiamina, mais hidrossolúvel, usado por via IV. Mecanismos:</p>
+    <ul>
+      <li><strong>Inibição de fosfodiesterases (PDE)</strong> → menos degradação de AMPc → broncodilatação (mesma via final do β₂, por outro ponto).</li>
+      <li><strong>Antagonismo de receptores de adenosina</strong> (A₁/A₂) → broncodilatação, mas também é a raiz dos efeitos adversos cardíacos e das convulsões.</li>
+      <li>Em <strong>dose baixa</strong>, ativa a <strong>HDAC2</strong> (histona desacetilase 2) e <strong>restaura a sensibilidade ao corticoide</strong> — guarde isso, volta no módulo de DPOC.</li>
+    </ul>
+
+    <div class="box erro">
+      <p class="rot">Janela terapêutica estreita — o número da prova</p>
+      <p>Faixa terapêutica: <strong>30–100 µmol/L</strong> (≈ 5–20 mg/L). Acima disso: náusea e vômito, cefaleia, insônia, <strong>arritmias</strong> e <strong>crises convulsivas</strong> — e as convulsões podem aparecer <em>sem</em> os sintomas gastrointestinais de aviso. Intoxicação por teofilina é emergência: convulsão refratária e taquiarritmia.</p>
+    </div>
+
+    <h3>Interações — metabolizada pelo CYP450 (sobretudo CYP1A2)</h3>
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>Aumentam o nível (risco de toxicidade)</th><th>Reduzem o nível (risco de perder efeito)</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Ciprofloxacino</strong>, eritromicina e claritromicina, fluvoxamina, cimetidina, alopurinol, contraceptivo oral, <strong>insuficiência cardíaca</strong>, hepatopatia, idade avançada, <strong>parar de fumar</strong></td>
+            <td><strong>Tabagismo</strong> (indução do CYP1A2), rifampicina, fenitoína, carbamazepina, fenobarbital, álcool crônico</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box porque">
+      <p class="rot">A pegadinha do cigarro</p>
+      <p>Fumante metaboliza teofilina mais rápido e precisa de dose maior. Se ele <strong>para de fumar</strong> e ninguém reduz a dose, o nível sobe e ele intoxica — uma das armadilhas favoritas de prova. A outra é <strong>ciprofloxacino prescrito para uma infecção respiratória</strong> em paciente que já usa teofilina.</p>
+    </div>
+
+    <p>Por tudo isso, a teofilina hoje é <strong>terapia complementar de quarta linha</strong> na asma (passo 4) e opção para DPOC com retenção de CO₂ ou quando o acesso a inalatórios é limitado — nunca primeira escolha.</p>
+
+    <div class="quiz" data-tema="m6"></div>
+  </section>
+
+  <!-- ============ 07 ============ -->
+  <section class="mod" id="m7">
+    <p class="eyebrow">Módulo 07</p>
+    <h2>Antagonistas de leucotrienos — os "lucastes"</h2>
+    <p class="dek">Comprimido, via oral, e o único da aula com alerta psiquiátrico em caixa preta.</p>
+
+    <p><strong>Montelucaste</strong> e <strong>zafirlucaste</strong> antagonizam o receptor <strong>CysLT₁</strong>, bloqueando a ação dos cisteinil-leucotrienos LTC₄, LTD₄ e LTE₄ — que são broncoconstritores potentes (mais que a histamina), aumentam a permeabilidade vascular e a secreção de muco. Os leucotrienos vêm da via da <strong>5-lipoxigenase</strong> sobre o ácido araquidônico.</p>
+
+    <ul>
+      <li>Administração <strong>oral</strong>, 1×/dia — vantagem real em criança pequena e em quem não consegue coordenar o inalador.</li>
+      <li>Reduzem a <strong>eosinofilia do escarro</strong> e inibem a <strong>asma induzida por exercício</strong>.</li>
+      <li>Especialmente úteis na <strong>asma com rinite alérgica</strong> associada e na <strong>doença respiratória exacerbada por AINE</strong> (a antiga tríade de Samter: asma + polipose nasal + intolerância ao AAS).</li>
+      <li><strong>São menos eficazes que o salbutamol como broncodilatador e menos eficazes que o corticoide inalatório como controlador.</strong> Terapia complementar, não substituta.</li>
+    </ul>
+
+    <div class="box erro">
+      <p class="rot">Alerta que caiu na prática em 2020</p>
+      <p>O FDA colocou <em>boxed warning</em> no montelucaste por <strong>eventos neuropsiquiátricos</strong>: agitação, agressividade, pesadelos vívidos, alteração de humor, depressão e <strong>ideação suicida</strong> — inclusive em crianças. Na prática: pergunte ativamente sobre sono e humor em quem usa, e não prescreva para rinite alérgica leve quando há alternativa.</p>
+    </div>
+
+    <div class="box prova">
+      <p class="rot">Por que AAS piora certos asmáticos</p>
+      <p>Os AINEs inibem a COX. Com a via da ciclo-oxigenase bloqueada, o ácido araquidônico é <strong>desviado para a 5-lipoxigenase</strong> → explosão de cisteinil-leucotrienos → broncoespasmo grave. É exatamente aí que os antileucotrienos brilham.</p>
+    </div>
+
+    <div class="quiz" data-tema="m7"></div>
+  </section>
+
+  <!-- ============ 08 ============ -->
+  <section class="mod" id="m8">
+    <p class="eyebrow">Módulo 08 · <span class="tag t-bio">Biológicos</span></p>
+    <h2>Anti-IgE e os demais imunobiológicos</h2>
+    <p class="dek">Cada anticorpo monoclonal desliga um ponto específico da cascata Th2 do módulo 03.</p>
+
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>Fármaco</th><th>Alvo</th><th>Perfil do paciente</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Omalizumabe</strong></td><td>Anticorpo monoclonal humanizado <strong>anti-IgE</strong> — liga a IgE livre e impede a ligação ao FcεRI do mastócito</td><td>Asma <strong>alérgica</strong> grave, com IgE e teste alérgico compatíveis; também rinite alérgica e urticária crônica</td></tr>
+          <tr><td>Mepolizumabe, reslizumabe</td><td>Anti-<strong>IL-5</strong></td><td>Asma <strong>eosinofílica</strong> grave</td></tr>
+          <tr><td>Benralizumabe</td><td>Anti-receptor de IL-5 (IL-5Rα) — depleta o eosinófilo</td><td>Asma eosinofílica grave</td></tr>
+          <tr><td>Dupilumabe</td><td>Anti-<strong>IL-4Rα</strong> — bloqueia IL-4 <em>e</em> IL-13 de uma vez</td><td>Asma T2, dermatite atópica, polipose nasal; também DPOC eosinofílica</td></tr>
+          <tr><td>Tezepelumabe</td><td>Anti-<strong>TSLP</strong> (alarmina epitelial, a montante de tudo)</td><td>Asma grave inclusive <strong>T2-baixa</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box porque">
+      <p class="rot">O que o omalizumabe prova</p>
+      <p>Que a IgE não é detalhe: bloquear <em>só</em> a IgE livre melhora desfechos na asma alérgica grave. Isso confirma o papel central da IgE na patogênese. A limitação é econômica — <strong>custo elevado restringe o uso</strong>, e aplicação é subcutânea a cada 2–4 semanas, com risco (raro) de anafilaxia, exigindo observação após a aplicação.</p>
+    </div>
+
+    <div class="box alerta">
+      <p class="rot">Realidade brasileira</p>
+      <p>No Registro Brasileiro de Asma Grave (REBRAG), dos 162 adultos acompanhados, <strong>71% já tinham sido hospitalizados</strong>, 31% tiveram mais de duas exacerbações graves no último ano e 6% já haviam sofrido parada cardiorrespiratória. Só <strong>41% dos adultos estavam em uso de biológico</strong>, e a remissão clínica foi alcançada em 20% desses (PITREZ et al., 2025).</p>
+    </div>
+
+    <div class="quiz" data-tema="m8"></div>
+  </section>
+
+  <!-- ============ 09 ============ -->
+  <section class="mod" id="m9">
+    <p class="eyebrow">Módulo 09 · <span class="tag t-ics">Corticoide</span></p>
+    <h2>Glicocorticoides na asma</h2>
+    <p class="dek">O único grupo que modifica a doença. Tudo o mais é sintomático.</p>
+
+    <h3>Mecanismo</h3>
+    <p>O glicocorticoide atravessa a membrana, liga o receptor citoplasmático (GR), o complexo migra ao núcleo e:</p>
+    <ul>
+      <li><strong>Transrepressão</strong> — inibe NF-κB e AP-1 e <strong>recruta HDAC2</strong>, desacetilando histonas e <em>desligando</em> genes de citocinas inflamatórias (IL-4, IL-5, IL-13, TNF-α). É daqui que vem o efeito anti-inflamatório.</li>
+      <li><strong>Transativação</strong> — liga elementos de resposta no DNA e <em>aumenta</em> a transcrição de anexina-1 (lipocortina), IL-10 e, importante, de <strong>receptores β₂</strong>.</li>
+    </ul>
+
+    <p>Traduzindo em efeitos:</p>
+    <ul>
+      <li>↓ citocinas Th2 e ativação de linfócito T</li>
+      <li>↓ eosinófilos (apoptose) e ↓ mastócitos na mucosa</li>
+      <li><strong>↑ regulação (suprarregulação) dos receptores β₂</strong> — restaura a resposta ao salbutamol em quem estava taquifilático</li>
+      <li>↓ permeabilidade microvascular → menos edema de parede</li>
+      <li>↓ produção de muco</li>
+    </ul>
+
+    <div class="box porque">
+      <p class="rot">A sinergia CI + β₂ não é coincidência</p>
+      <p>O corticoide <strong>suprarregula o receptor β₂</strong>, e o β₂-agonista, via AMPc, <strong>facilita a translocação nuclear do receptor de glicocorticoide</strong>. Cada um potencializa o outro — é a base farmacológica de existirem dispositivos combinados, e não só dois inaladores separados.</p>
+    </div>
+
+    <h3>Fármacos e vias</h3>
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>Via</th><th>Fármacos</th><th>Quando</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Inalatória</strong></td><td>Beclometasona, budesonida, fluticasona, mometasona, ciclesonida</td><td>Manutenção — praticamente todo asmático</td></tr>
+          <tr><td><strong>Oral</strong></td><td>Prednisolona / prednisona</td><td>Exacerbação (curso curto) ou doença grave refratária</td></tr>
+          <tr><td><strong>IV</strong></td><td>Hidrocortisona, metilprednisolona</td><td>Asma grave aguda, paciente que não deglute</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Efeitos adversos</h3>
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>Inalatório</th><th>Sistêmico (oral prolongado)</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Candidíase orofaríngea</strong>, <strong>disfonia/rouquidão</strong> (miopatia da musculatura laríngea), tosse irritativa. Em doses altas e prolongadas pode haver absorção sistêmica relevante</td>
+            <td>Supressão do eixo HHA, síndrome de Cushing, osteoporose, hiperglicemia, catarata e glaucoma, fragilidade cutânea, imunossupressão, redução da velocidade de crescimento em crianças</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box prova">
+      <p class="rot">As duas orientações que resolvem quase tudo</p>
+      <p><strong>Espaçador</strong> (reduz o depósito orofaríngeo e melhora a fração pulmonar) e <strong>enxaguar a boca cuspindo depois do uso</strong>. A ciclesonida é um <em>pró-fármaco</em> ativado por esterases no pulmão — por isso causa menos candidíase. E a fração deglutida da maioria dos CI sofre intenso <strong>metabolismo de primeira passagem</strong> hepático, o que mantém a biodisponibilidade sistêmica oral baixa.</p>
+    </div>
+
+    <div class="quiz" data-tema="m9"></div>
+  </section>
+
+  <!-- ============ 10 ============ -->
+  <section class="mod" id="m10">
+    <p class="eyebrow">Módulo 10</p>
+    <h2>Tratamento escalonado: o slide × o GINA atual</h2>
+    <p class="dek">Este é o ponto onde o material clássico e a diretriz vigente divergem. Saber os dois é o que separa nota 7 de nota 10.</p>
+
+    <h3>O esquema clássico do slide (Rang &amp; Dale)</h3>
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>Passo</th><th>Conduta</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">1</td><td>Salbutamol inalado conforme necessidade</td></tr>
+          <tr><td class="mono">2</td><td>Adicionar corticosteroide inalatório</td></tr>
+          <tr><td class="mono">3</td><td>Adicionar broncodilatador de longa duração (LABA)</td></tr>
+          <tr><td class="mono">4</td><td>Adicionar teofilina ou montelucaste</td></tr>
+          <tr><td class="mono">5</td><td>Corticoide oral regular (prednisolona)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box erro">
+      <p class="rot">O que mudou — e por quê</p>
+      <p>O <strong>GINA não recomenda mais SABA isolado</strong> para adultos e adolescentes, em nenhum passo. Motivo: usar só broncodilatador trata a camada 3 e deixa a inflamação correndo solta; pacientes com asma "leve" morriam em exacerbações. Hoje <strong>todo adulto e adolescente com asma deve receber tratamento contendo corticoide inalatório</strong>, seja regular, seja dentro do resgate.</p>
+    </div>
+
+    <h3>Os dois "trilhos" do GINA</h3>
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>&nbsp;</th><th>Trilho 1 — preferencial</th><th>Trilho 2 — alternativo</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Resgate</strong></td><td><strong>CI-formoterol em dose baixa</strong> conforme necessidade (resgate anti-inflamatório)</td><td>SABA conforme necessidade</td></tr>
+          <tr><td><strong>Passos 1–2</strong></td><td>CI-formoterol dose baixa só quando precisar</td><td>CI em dose baixa <strong>todo dia</strong> + SABA de resgate</td></tr>
+          <tr><td><strong>Passos 3–5</strong></td><td><strong>MART</strong>: o mesmo inalador CI-formoterol serve de manutenção <em>e</em> de resgate, com dose escalonada</td><td>CI-LABA regular, resgate com SABA; add-on LAMA, antileucotrieno, biológico</td></tr>
+          <tr><td><strong>Vantagem</strong></td><td>Menos exacerbações graves; o paciente recebe mais corticoide justamente quando está piorando</td><td>Para quem já está bem controlado no esquema ou não tolera formoterol</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box porque">
+      <p class="rot">A sacada do MART</p>
+      <p>No esquema tradicional, quando o paciente piora ele usa <em>mais broncodilatador</em> — ou seja, mais do fármaco que não trata a inflamação. No MART, piorar significa automaticamente <strong>mais corticoide</strong>, porque ele está no mesmo puff. O tratamento se autoajusta à atividade da doença.</p>
+    </div>
+
+    <div class="box alerta">
+      <p class="rot">Como responder na prova</p>
+      <p>Se o enunciado citar Rang &amp; Dale, o slide da aula ou "terapia escalonada clássica", responda pelos 5 passos. Se citar GINA, SBPT, "diretriz atual" ou trouxer um caso clínico real, responda <strong>CI-formoterol / nunca SABA isolado</strong>. As recomendações da SBPT (PIZZICHINI et al., 2020) já incorporam essa lógica adaptada ao Brasil.</p>
+    </div>
+
+    <h3>Antes de subir de passo — os 4 checks</h3>
+    <ol class="cascata">
+      <li><strong>Técnica inalatória</strong> — peça para demonstrar. É a causa nº 1 de "falha terapêutica".</li>
+      <li><strong>Adesão</strong> — conte os dispensários, pergunte sem julgar.</li>
+      <li><strong>Comorbidades</strong> — rinite, DRGE, obesidade, apneia do sono, ansiedade.</li>
+      <li><strong>Exposições</strong> — tabagismo, mofo, ácaro, animal, <strong>exposição ocupacional</strong> (a asma relacionada ao trabalho é subdiagnosticada; ROIO et al., 2021) e fármacos como betabloqueador e AINE.</li>
+    </ol>
+
+    <div class="quiz" data-tema="m10"></div>
+  </section>
+
+  <!-- ============ 11 ============ -->
+  <section class="mod" id="m11">
+    <p class="eyebrow">Módulo 11</p>
+    <h2>Asma grave aguda (estado de mal asmático)</h2>
+    <p class="dek">Emergência. Aqui a farmacologia vira sequência de ações com tempo contado.</p>
+
+    <h3>Reconhecer a gravidade</h3>
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>Sinal</th><th>Leitura</th></tr></thead>
+        <tbody>
+          <tr><td>Fala em palavras soltas, não completa frases</td><td>Grave</td></tr>
+          <tr><td class="mono">FR &gt; 30 irpm · FC &gt; 120 bpm</td><td>Grave</td></tr>
+          <tr><td class="mono">SpO₂ &lt; 90% · PFE &lt; 50% do previsto</td><td>Grave</td></tr>
+          <tr><td>Uso de musculatura acessória, tórax silencioso</td><td><strong>Iminência de parada</strong> — o silêncio significa que não há fluxo suficiente para gerar sibilo</td></tr>
+          <tr><td>Sonolência, confusão, bradicardia, cianose</td><td><strong>Iminência de parada</strong></td></tr>
+          <tr><td><strong>PaCO₂ normal ou elevada</strong> na gasometria</td><td><strong>Sinal de alarme</strong> — o esperado na crise é hipocapnia por hiperventilação. CO₂ "normalizando" = fadiga da musculatura respiratória</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Conduta</h3>
+    <ol class="cascata">
+      <li><strong>Oxigênio</strong> — o slide traz "alta concentração (≥60%)". Na prática atual usa-se <strong>oxigenoterapia controlada com alvo de SpO₂ 93–95%</strong> em adultos (94–98% em crianças de 6–11 anos), porque hiperóxia também piora desfecho.</li>
+      <li><strong>SABA inalatório repetido</strong> — salbutamol nebulizado ou por aerossol com espaçador, em doses seriadas. No mal asmático refratário, salbutamol IV é opção.</li>
+      <li><strong>Ipratrópio nebulizado associado</strong> nas primeiras horas das crises graves — a combinação reduz internação.</li>
+      <li><strong>Corticoide sistêmico em até 1 hora</strong> — prednisolona/prednisona VO (40–50 mg no adulto) ou <strong>hidrocortisona IV</strong> se não tolera VO. Efeito começa em horas, mas é ele que impede a fase tardia e a recidiva.</li>
+      <li><strong>Sulfato de magnésio IV</strong> (2 g em ~20 min no adulto) nas crises graves sem resposta ao tratamento inicial — relaxa músculo liso por bloqueio de canais de cálcio.</li>
+      <li><strong>Monitorização</strong> — VEF₁ ou PFE seriados, SpO₂ contínua e <strong>gasometria arterial</strong>; suporte ventilatório se exaustão.</li>
+      <li><strong>Na alta</strong> — corticoide oral por 5–7 dias, <strong>iniciar ou ajustar o corticoide inalatório</strong>, plano de ação por escrito e revisão da técnica inalatória.</li>
+    </ol>
+
+    <div class="box erro">
+      <p class="rot">Erros clássicos na crise</p>
+      <p>Dar alta sem corticoide sistêmico; usar sedativo (deprime o drive respiratório); confiar na melhora do sibilo sem medir PFE/SpO₂; e interpretar PaCO₂ normal como "está melhorando". Ausência de sibilo em paciente dispneico é <strong>sinal terminal</strong>, não sinal de melhora.</p>
+    </div>
+
+    <div class="quiz" data-tema="m11"></div>
+  </section>
+
+  <!-- ============ 12 ============ -->
+  <section class="mod" id="m12">
+    <p class="eyebrow">Módulo 12</p>
+    <h2>Anafilaxia e angioedema</h2>
+    <p class="dek">Duas emergências alérgicas com mecanismos — e fármacos — completamente diferentes.</p>
+
+    <h3>Anafilaxia</h3>
+    <p>Reação de <strong>hipersensibilidade tipo I</strong> mediada por IgE, sistêmica: urticária, angioedema, broncoespasmo, hipotensão, sintomas gastrointestinais.</p>
+    <ul>
+      <li><strong>Adrenalina (epinefrina) IM é o tratamento que salva.</strong> Solução <strong>1:1000 (1 mg/mL)</strong>, dose <strong>0,01 mg/kg</strong> (máximo 0,5 mg no adulto, 0,3 mg na criança), no <strong>vasto lateral da coxa</strong>, repetível a cada 5–15 min.</li>
+      <li>Por que funciona em tudo ao mesmo tempo: <strong>α₁</strong> → vasoconstrição, sobe a PA e reduz o edema de mucosa; <strong>β₁</strong> → inotropismo e cronotropismo; <strong>β₂</strong> → broncodilatação e bloqueio da degranulação de mastócitos.</li>
+      <li>Medidas associadas: decúbito com pernas elevadas, <strong>O₂</strong>, expansão volêmica, <strong>anti-histamínico (clorfeniramina)</strong> e <strong>hidrocortisona</strong>.</li>
+    </ul>
+
+    <div class="box erro">
+      <p class="rot">Erro clínico comum</p>
+      <p>Tratar anafilaxia com anti-histamínico e corticoide "primeiro". Ambos são <strong>adjuvantes</strong>: o anti-H1 só melhora urticária e prurido, e o corticoide leva horas — serve para tentar reduzir a reação bifásica, não para salvar agora. <strong>Atraso na adrenalina é o principal preditor de óbito.</strong> E a via é <strong>IM na coxa</strong>, não subcutânea (absorção errática) nem IV em bolus (arritmia).</p>
+    </div>
+
+    <h3>Angioedema</h3>
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>Tipo</th><th>Mediador</th><th>Tratamento</th></tr></thead>
+        <tbody>
+          <tr><td>Alérgico (histaminérgico)</td><td>Histamina</td><td>Adrenalina, anti-H1, corticoide. Costuma vir com urticária e prurido</td></tr>
+          <tr><td><strong>Hereditário</strong> (deficiência de inibidor de C1)</td><td><strong>Bradicinina</strong></td><td><strong>Icatibanto SC</strong> (antagonista do receptor B₂ de bradicinina); também concentrado de inibidor de C1 e ecalantida</td></tr>
+          <tr><td>Induzido por <strong>IECA</strong></td><td><strong>Bradicinina</strong> (a ECA degrada bradicinina; inibi-la a acumula)</td><td>Suspender o IECA definitivamente; suporte de via aérea; icatibanto em casos selecionados</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box porque">
+      <p class="rot">Por que o hereditário não responde a adrenalina e corticoide</p>
+      <p>Porque <strong>não há histamina envolvida</strong>. O edema é bradicinínico. Dar corticoide e anti-histamínico num angioedema hereditário é perder tempo enquanto a via aérea fecha — o alvo tem que ser a bradicinina (icatibanto) ou repor o inibidor de C1. Sem urticária e sem prurido é a pista clínica de que o mecanismo é bradicinínico.</p>
+    </div>
+
+    <div class="quiz" data-tema="m12"></div>
+  </section>
+
+  <!-- ============ 13 ============ -->
+  <section class="mod" id="m13">
+    <p class="eyebrow">Módulo 13</p>
+    <h2>Doença pulmonar obstrutiva crônica</h2>
+    <p class="dek">3ª causa de morte no mundo. O tabagismo é a causa principal — e a cessação, a única intervenção que muda a história natural.</p>
+
+    <h3>Patogênese</h3>
+    <ol class="cascata">
+      <li>Fumaça de cigarro → <strong>estresse oxidativo</strong> e inflamação crônica com <strong>macrófagos, neutrófilos e linfócitos T CD8⁺</strong> (note: <em>não</em> é o padrão eosinofílico/Th2 da asma).</li>
+      <li>Liberação de proteases (elastase neutrofílica, metaloproteinases) → <strong>desequilíbrio protease-antiprotease</strong> → destruição de <strong>fibras de elastina</strong> e das paredes alveolares = <strong>enfisema</strong>. Na deficiência de <strong>α₁-antitripsina</strong>, esse desequilíbrio é genético.</li>
+      <li><strong>Fibrose das pequenas vias aéreas</strong> (bronquiolite obstrutiva) → obstrução fixa.</li>
+      <li>Perda do <em>recolhimento elástico</em> → colapso expiratório → <strong>aprisionamento aéreo e hiperinsuflação</strong> → a dispneia da DPOC é tanto de obstrução quanto de hiperinsuflação.</li>
+      <li>Hipoxemia crônica → <strong>vasoconstrição pulmonar hipóxica</strong> → hipertensão pulmonar → <strong>cor pulmonale</strong>.</li>
+    </ol>
+
+    <h3>Quadro clínico</h3>
+    <ul>
+      <li><strong>Tosse matinal crônica produtiva</strong>, com exacerbações periódicas</li>
+      <li><strong>Dispneia progressiva</strong> aos esforços, lentamente pior ao longo de anos</li>
+      <li><strong>Hipertensão pulmonar tardia</strong> com cor pulmonale: turgência jugular, hepatomegalia, edema de membros inferiores</li>
+      <li>Diagnóstico confirmado por espirometria: <strong>VEF₁/CVF &lt; 0,70 pós-broncodilatador</strong> — obstrução que <em>persiste</em></li>
+    </ul>
+
+    <h3>Tratamento</h3>
+    <ol class="cascata">
+      <li><strong>Cessação do tabagismo</strong> — a única intervenção que <strong>retarda a progressão</strong>, e ponto de partida obrigatório. Acrescente <strong>imunização</strong>: influenza anual, pneumocócica, COVID-19, dTpa e, nas faixas indicadas, VSR.</li>
+      <li><strong>Broncodilatadores</strong> — a base do alívio sintomático.
+        <ul>
+          <li>Curta ação para resgate: <strong>ipratrópio</strong> e <strong>salbutamol</strong></li>
+          <li>Longa ação para manutenção: <strong>tiotrópio</strong> (LAMA), <strong>salmeterol</strong> ou <strong>formoterol</strong> (LABA)</li>
+          <li>A dupla broncodilatação <strong>LABA + LAMA</strong> é hoje o passo inicial preferencial na maioria dos sintomáticos</li>
+        </ul>
+      </li>
+      <li><strong>Glicocorticoides</strong> — <strong>em geral ineficazes na DPOC</strong>, ao contrário da asma. Ainda assim vale a tentativa: os inalatórios melhoram qualidade de vida e reduzem exacerbações em <strong>subgrupos selecionados</strong>, sobretudo com <strong>eosinófilos sanguíneos elevados</strong> e histórico de exacerbações. Corticoide inalatório em DPOC aumenta o risco de <strong>pneumonia</strong> — a decisão é sempre custo-benefício.</li>
+      <li><strong>Novos tratamentos</strong> — <strong>roflumilaste</strong> (inibidor de <strong>PDE-4</strong>) como adjunto na DPOC grave com bronquite crônica e exacerbações frequentes; azitromicina crônica em casos selecionados; e, nas diretrizes mais recentes, <strong>dupilumabe e mepolizumabe</strong> como add-on na DPOC eosinofílica propensa a exacerbações (CAZZOLA et al., 2026).</li>
+      <li><strong>Oxigenoterapia domiciliar prolongada</strong> nos hipoxêmicos — junto com a cessação do tabagismo, uma das pouquíssimas medidas que aumentam <strong>sobrevida</strong>. Critérios: <strong>PaO₂ ≤ 55 mmHg</strong> ou <strong>SpO₂ ≤ 88%</strong> em repouso; ou PaO₂ 56–59 mmHg <em>com</em> cor pulmonale, hipertensão pulmonar ou policitemia (Ht &gt; 55%). Usar <strong>≥ 15 h/dia</strong>, incluindo o sono (CASTELLANO et al., 2022).</li>
+      <li><strong>Reabilitação pulmonar</strong> — melhora dispneia, capacidade de exercício e qualidade de vida; indicada especialmente após exacerbação.</li>
+    </ol>
+
+    <div class="box porque">
+      <p class="rot">Por que o corticoide "não pega" na DPOC — o mecanismo da HDAC2</p>
+      <p>O glicocorticoide depende de recrutar a <strong>HDAC2</strong> para desacetilar histonas e desligar genes inflamatórios. O <strong>estresse oxidativo do tabagismo inativa a HDAC2</strong> (por nitrosilação e degradação). Sem HDAC2 funcionante, o corticoide liga no seu receptor mas não consegue silenciar os genes — é a <strong>corticorresistência</strong> da DPOC. Detalhe elegante: a <strong>teofilina em dose baixa restaura a atividade da HDAC2</strong>, e é por isso que ela ainda tem lugar aqui.</p>
+    </div>
+
+    <div class="box alerta">
+      <p class="rot">Exacerbação de DPOC</p>
+      <p>Tratamento: SABA/SAMA intensificados, <strong>corticoide sistêmico por 5 dias</strong> (prednisona 40 mg/dia) e <strong>antibiótico quando há purulência do escarro</strong> associada a aumento de volume e/ou de dispneia, ou necessidade de ventilação. <strong>Ventilação não invasiva</strong> é indicação clássica na exacerbação com acidose respiratória. Estratégias guiadas por <strong>procalcitonina</strong> reduzem prescrição de antibiótico sem perder desfecho (SHENG et al., 2024). Na oxigenoterapia da exacerbação, o alvo é <strong>SpO₂ 88–92%</strong> — mais que isso pode piorar a retenção de CO₂.</p>
+    </div>
+
+    <div class="quiz" data-tema="m13"></div>
+  </section>
+
+  <!-- ============ 14 ============ -->
+  <section class="mod" id="m14">
+    <p class="eyebrow">Módulo 14</p>
+    <h2>Asma × DPOC lado a lado</h2>
+    <p class="dek">A reversibilidade da obstrução é o principal diferencial clínico.</p>
+
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>&nbsp;</th><th>Asma</th><th>DPOC</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Idade de início</strong></td><td>Geralmente infância/juventude</td><td>Em geral após os 40, com carga tabágica</td></tr>
+          <tr><td><strong>Fator causal</strong></td><td>Atopia, alérgenos, genética</td><td><strong>Tabagismo</strong> (também biomassa, ocupacional, α₁-antitripsina)</td></tr>
+          <tr><td><strong>Células da inflamação</strong></td><td><strong>Eosinófilos</strong>, mastócitos, linfócitos <strong>Th2 / CD4⁺</strong></td><td><strong>Neutrófilos</strong>, macrófagos, linfócitos <strong>CD8⁺</strong></td></tr>
+          <tr><td><strong>Obstrução</strong></td><td><strong>Reversível</strong> (espontânea ou com broncodilatador)</td><td>Persistente, pouco reversível, progressiva</td></tr>
+          <tr><td><strong>Sintomas</strong></td><td>Variáveis, episódicos, pioram à noite/madrugada</td><td>Persistentes e lentamente progressivos</td></tr>
+          <tr><td><strong>Resposta ao corticoide</strong></td><td><strong>Excelente</strong> — é o pilar</td><td><strong>Limitada</strong> — HDAC2 inativada pelo estresse oxidativo</td></tr>
+          <tr><td><strong>Destruição alveolar</strong></td><td>Ausente</td><td>Presente (enfisema)</td></tr>
+          <tr><td><strong>Alvo de SpO₂ na agudização</strong></td><td class="mono">93–95%</td><td class="mono">88–92%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box alerta">
+      <p class="rot">Nem sempre são coisas separadas</p>
+      <p>Asma e DPOC <strong>podem coexistir</strong> no mesmo paciente (sobreposição asma-DPOC). Por isso a recomendação de <strong>sempre valer a tentativa terapêutica com glicocorticoide na DPOC</strong>: se houver componente asmático ou eosinofílico, a resposta aparece. O que não se faz é manter corticoide inalatório indefinidamente em quem não respondeu — o risco de pneumonia continua de pé.</p>
+    </div>
+
+    <div class="quiz" data-tema="m14"></div>
+  </section>
+
+  <!-- ============ 15 ============ -->
+  <section class="mod" id="m15">
+    <p class="eyebrow">Módulo 15</p>
+    <h2>Surfactantes pulmonares e tosse</h2>
+
+    <h3>Surfactantes</h3>
+    <p>O surfactante é um complexo de fosfolipídios (principalmente <strong>dipalmitoilfosfatidilcolina</strong>) e apoproteínas produzido pelos <strong>pneumócitos tipo II</strong>. Ele <strong>reduz a tensão superficial alveolar</strong>, o que aumenta a complacência, previne o colapso alveolar no fim da expiração e reduz o trabalho respiratório.</p>
+    <ul>
+      <li>Indicação principal: <strong>síndrome da angústia respiratória do recém-nascido prematuro</strong> (doença da membrana hialina), em que o pulmão imaturo ainda não produz surfactante suficiente.</li>
+      <li>Exemplos: <strong>beractanto</strong> e <strong>poractanto alfa</strong> (derivados de pulmão animal), administrados por <strong>cânula endotraqueal</strong>, instilados diretamente na traqueia.</li>
+      <li>Prevenção: <strong>corticoide antenatal</strong> (betametasona ou dexametasona) à gestante em risco de parto prematuro acelera a maturação pulmonar fetal — é a intervenção que mais reduz a incidência da síndrome.</li>
+    </ul>
+
+    <div class="box porque">
+      <p class="rot">Por que a Lei de Laplace explica tudo</p>
+      <p>P = 2T/r. Sem surfactante, a tensão superficial (T) é alta e os alvéolos <strong>menores</strong> (menor r) geram maior pressão de colapso, esvaziando-se nos maiores — atelectasias progressivas. O surfactante reduz T de forma <strong>dependente da área</strong>: quanto menor o alvéolo, mais concentrado o surfactante e menor a tensão. Ele estabiliza alvéolos de tamanhos diferentes.</p>
+    </div>
+
+    <h3>Tosse</h3>
+    <p>Reflexo <strong>protetor</strong> — limpa a via aérea. Suprimir tosse produtiva é, em regra, ruim.</p>
+    <ul>
+      <li><strong>Causa medicamentosa clássica:</strong> <strong>inibidores da ECA</strong> (captopril, enalapril, lisinopril). A ECA degrada bradicinina e substância P; inibi-la faz esses mediadores se acumularem na via aérea e sensibilizarem as fibras C. Conduta: <strong>substituir por um antagonista do receptor de angiotensina</strong> (losartana, valsartana), que não mexe na bradicinina. A tosse some em dias a semanas.</li>
+      <li><strong>Antitussígenos</strong> (codeína, dextrometorfano — agem no centro da tosse bulbar) ficam reservados para <strong>tosse seca, irritativa e dolorosa</strong>, como na doença maligna — o exemplo do slide é o <strong>carcinoma brônquico</strong>. Efeitos adversos: constipação, sedação, <strong>depressão respiratória</strong> e retenção de secreção.</li>
+      <li>Outras causas frequentes a excluir antes de tratar: gotejamento pós-nasal, asma (asma variante tosse), DRGE e tabagismo.</li>
+    </ul>
+
+    <div class="quiz" data-tema="m15"></div>
+  </section>
+
+  <!-- ============ 16 ============ -->
+  <section class="mod" id="m16">
+    <p class="eyebrow">Módulo 16</p>
+    <h2>Tabelões de consulta</h2>
+    <p class="dek">As duas tabelas dos slides finais, completas. Boas para revisar na véspera.</p>
+
+    <h3>Classes, farmacodinâmica e farmacocinética</h3>
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>Classe</th><th>Principais fármacos</th><th>Farmacodinâmica</th><th>Farmacocinética</th><th>Início / duração</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="tag t-saba">SABA</span><br>β₂ de curta duração</td>
+            <td>Salbutamol, fenoterol, terbutalina</td>
+            <td>Ativam receptores β₂ → ↑ AMPc → relaxamento do músculo liso e broncodilatação rápida</td>
+            <td>Predominantemente inalatória; absorção pulmonar e sistêmica parcial; metabolismo hepático e eliminação renal</td>
+            <td class="mono">3–5 min / 4–6 h</td>
+          </tr>
+          <tr>
+            <td><span class="tag t-laba">LABA</span><br>β₂ de longa duração</td>
+            <td>Formoterol, salmeterol, vilanterol</td>
+            <td>Ativam receptores β₂ → broncodilatação prolongada</td>
+            <td>Maior lipofilicidade e permanência nas vias aéreas; metabolismo predominantemente hepático</td>
+            <td class="mono">Formoterol 1–3 min<br>Salmeterol 10–20 min / 12–24 h</td>
+          </tr>
+          <tr>
+            <td><span class="tag t-lama">LAMA</span><br>antimuscarínicos de longa duração</td>
+            <td>Tiotrópio, glicopirrônio, umeclidínio</td>
+            <td>Bloqueiam principalmente receptores M₃ → inibem a broncoconstrição mediada pela acetilcolina</td>
+            <td>Baixa absorção sistêmica relativa; alguns com eliminação predominantemente renal</td>
+            <td class="mono">Variável / ~24 h</td>
+          </tr>
+          <tr>
+            <td><span class="tag t-ics">CI</span><br>corticosteroides inalatórios</td>
+            <td>Budesonida, beclometasona, fluticasona, mometasona, ciclesonida</td>
+            <td>Ativam receptores glicocorticoides → reduzem inflamação, hiper-responsividade e produção de muco; aumentam a responsividade β₂</td>
+            <td>Ação predominantemente local; parte é deglutida e sofre metabolismo de primeira passagem; baixa biodisponibilidade sistêmica da fração oral</td>
+            <td class="mono">Efeito em dias; benefício máximo após semanas de uso regular</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Apresentações e posologia usual</h3>
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>Medicamento</th><th>Classe</th><th>Apresentações frequentes</th><th>Posologia usual</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Salbutamol</strong></td><td><span class="tag t-saba">SABA</span></td><td>Aerossol dosimetrado; solução para nebulização</td><td class="mono">Aerossol 100 mcg/jato — 1–2 jatos quando necessário. Nebulização usualmente 2,5 mg, variando conforme gravidade e protocolo</td></tr>
+          <tr><td><strong>Fenoterol</strong></td><td><span class="tag t-saba">SABA</span></td><td>Aerossol dosimetrado; solução para nebulização</td><td class="mono">Aerossol ~100 mcg/jato — 1–2 jatos quando necessário. Nebulização frequentemente ajustada entre 0,5–1 mg</td></tr>
+          <tr><td><strong>Formoterol</strong></td><td><span class="tag t-laba">LABA</span></td><td>Cápsula/pó para inalação; dispositivos combinados com CI</td><td class="mono">Geralmente 12 mcg, 2×/dia. Em esquemas CI-formoterol, dose e frequência dependem da estratégia adotada</td></tr>
+          <tr><td><strong>Salmeterol</strong></td><td><span class="tag t-laba">LABA</span></td><td>Aerossol ou pó para inalação; geralmente associado a CI</td><td class="mono">Geralmente 50 mcg, 2×/dia. Na asma, sempre associado a corticosteroide inalatório</td></tr>
+          <tr><td><strong>Tiotrópio</strong></td><td><span class="tag t-lama">LAMA</span></td><td>Cápsula inalatória; aerossol de névoa suave</td><td class="mono">Cápsula 18 mcg, 1×/dia. Névoa suave varia conforme formulação; na asma pode ser usado em dose total de 5 mcg/dia</td></tr>
+          <tr><td><strong>Budesonida</strong></td><td><span class="tag t-ics">CI</span></td><td>Aerossol/pó para inalação; suspensão para nebulização</td><td class="mono">Frequentemente 200–400 mcg, 2×/dia, ajustada conforme controle e gravidade</td></tr>
+          <tr><td><strong>Beclometasona</strong></td><td><span class="tag t-ics">CI</span></td><td>Aerossol dosimetrado</td><td class="mono">Geralmente 100–200 mcg, 2×/dia, conforme controle e formulação</td></tr>
+          <tr><td><strong>Fluticasona</strong></td><td><span class="tag t-ics">CI</span></td><td>Aerossol ou pó para inalação</td><td class="mono">Frequentemente 100–250 mcg, 2×/dia, conforme formulação e intensidade do tratamento</td></tr>
+          <tr><td><strong>Mometasona</strong></td><td><span class="tag t-ics">CI</span></td><td>Pó para inalação; apresentações combinadas</td><td class="mono">Geralmente 200–400 mcg/dia, em 1 ou 2 administrações</td></tr>
+          <tr><td><strong>Ciclesonida</strong></td><td><span class="tag t-ics">CI</span></td><td>Aerossol dosimetrado</td><td class="mono">Frequentemente 160 mcg, 1×/dia, ajustada conforme resposta clínica e gravidade</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box alerta">
+      <p class="rot">Sobre as doses</p>
+      <p>São faixas de referência para estudo, extraídas do material da aula. A dose real depende da formulação, do dispositivo, da idade e da gravidade — na prática e na prescrição, confira sempre a bula e o protocolo do serviço.</p>
+    </div>
+  </section>
+
+  <!-- ============ CASOS ============ -->
+  <section class="mod" id="casos">
+    <p class="eyebrow">Parte prática</p>
+    <h2>12 casos clínicos comentados</h2>
+    <p class="dek">Cada caso tem a vinheta, os dados objetivos e perguntas que corrigem na hora. Leia, decida, depois clique.</p>
+    <div id="casos-lista"></div>
+  </section>
+
+  <!-- ============ SIMULADO ============ -->
+  <section class="mod" id="simulado">
+    <p class="eyebrow">Fechamento</p>
+    <h2>Simulado misto</h2>
+    <p class="dek">Questões embaralhadas de todos os módulos — sem a dica do contexto para ajudar.</p>
+    <div class="quiz" data-tema="sim"></div>
+    <div id="resultado-final"></div>
+    <div class="controles">
+      <button class="btn forte" id="btn-erradas" type="button">Revisar só as que errei</button>
+      <button class="btn" id="btn-todas" type="button">Mostrar todas de novo</button>
+      <button class="btn" id="btn-zerar" type="button">Zerar placar</button>
+    </div>
+  </section>
+
+  <!-- ============ PEGADINHAS ============ -->
+  <section class="mod" id="pegadinhas">
+    <p class="eyebrow">Antes da prova</p>
+    <h2>As 16 pegadinhas clássicas</h2>
+    <p class="dek">Se você só tiver 10 minutos antes da prova, leia isto.</p>
+
+    <div class="tabwrap">
+      <table>
+        <thead><tr><th>Pega</th><th>O que é certo</th></tr></thead>
+        <tbody>
+          <tr><td>"LTB₄ causa o broncoespasmo da fase imediata"</td><td>LTB₄ é <strong>quimiotático</strong>. Os espasmogênicos são histamina, PGD₂ e os <strong>cisteinil-leucotrienos</strong> (C₄, D₄, E₄)</td></tr>
+          <tr><td>"Montelucaste bloqueia o receptor de LTB₄"</td><td>Bloqueia <strong>CysLT₁</strong></td></tr>
+          <tr><td>"O β₂ trata a inflamação"</td><td>Não trata. Só relaxa músculo liso. Quem trata é o <strong>corticoide</strong></td></tr>
+          <tr><td>"LABA pode ser usado sozinho na asma"</td><td>Nunca. Aumenta mortalidade. Na <strong>DPOC</strong>, pode</td></tr>
+          <tr><td>"Salmeterol serve de resgate"</td><td>Início lento. Só o <strong>formoterol</strong> (1–3 min) serve de resgate — e mesmo assim junto com CI</td></tr>
+          <tr><td>"PaCO₂ normal na crise é bom sinal"</td><td>É <strong>sinal de exaustão</strong>. O esperado é hipocapnia</td></tr>
+          <tr><td>"Sumiu o sibilo, melhorou"</td><td><strong>Tórax silencioso</strong> = iminência de parada</td></tr>
+          <tr><td>"Na anafilaxia dou corticoide e anti-histamínico"</td><td><strong>Adrenalina IM na coxa</strong>, já. O resto é adjuvante</td></tr>
+          <tr><td>"Adrenalina na anafilaxia é subcutânea"</td><td><strong>IM no vasto lateral</strong>, 1:1000, 0,01 mg/kg</td></tr>
+          <tr><td>"Angioedema hereditário responde a corticoide"</td><td>É <strong>bradicinínico</strong>: icatibanto ou inibidor de C1</td></tr>
+          <tr><td>"Teofilina é segura, só dá enjoo"</td><td>Janela <strong>30–100 µmol/L</strong>; convulsão e arritmia podem ser a primeira manifestação</td></tr>
+          <tr><td>"Parar de fumar não muda a teofilina"</td><td>Muda: sem a indução do CYP1A2 o nível <strong>sobe</strong> e o paciente intoxica</td></tr>
+          <tr><td>"Corticoide funciona igual na DPOC"</td><td>Corticorresistência por <strong>HDAC2 inativada</strong> pelo estresse oxidativo</td></tr>
+          <tr><td>"Corticoide inalatório aumenta sobrevida na DPOC"</td><td>Quem aumenta sobrevida: <strong>cessação do tabagismo</strong> e <strong>O₂ domiciliar</strong> no hipoxêmico (tripla terapia reduz mortalidade em subgrupos)</td></tr>
+          <tr><td>"Alvo de SpO₂ é sempre acima de 94%"</td><td>Asma <strong>93–95%</strong>; DPOC exacerbada <strong>88–92%</strong></td></tr>
+          <tr><td>"Tosse do IECA se trata com antitussígeno"</td><td><strong>Troca o IECA por BRA</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ REFERÊNCIAS ============ -->
+  <section class="mod" id="refs">
+    <p class="eyebrow">Normas ABNT (NBR 6023)</p>
+    <h2>Referências</h2>
+    <p class="dek">Prioridade para SciELO / Jornal Brasileiro de Pneumologia e artigos indexados na PubMed, com DOI verificável.</p>
+
+    <ol class="refs">
+      <li>CARVALHO-PINTO, R. M. de <em>et al.</em> <strong>2021 Brazilian Thoracic Association recommendations for the management of severe asthma</strong>. <em>Jornal Brasileiro de Pneumologia</em>, São Paulo, v. 47, n. 6, e20210273, 2021. DOI: 10.36416/1806-3756/e20210273. Disponível em: <a href="https://doi.org/10.36416/1806-3756/e20210273">https://doi.org/10.36416/1806-3756/e20210273</a>. Acesso em: 15 set. 2026.</li>
+
+      <li>CASTELLANO, M. V. C. de O. <em>et al.</em> <strong>2022 Brazilian Thoracic Association recommendations for long-term home oxygen therapy</strong>. <em>Jornal Brasileiro de Pneumologia</em>, São Paulo, v. 48, n. 5, e20220179, 2022. DOI: 10.36416/1806-3756/e20220179. Disponível em: <a href="https://doi.org/10.36416/1806-3756/e20220179">https://doi.org/10.36416/1806-3756/e20220179</a>. Acesso em: 15 set. 2026.</li>
+
+      <li>CAZZOLA, M. <em>et al.</em> <strong>GOLD 2026: transforming COPD management with early intervention, multi-dimensional assessment, and personalized care</strong>. <em>Drugs</em>, v. 86, n. 5, p. 581-597, 2026. DOI: 10.1007/s40265-026-02303-3. Disponível em: <a href="https://doi.org/10.1007/s40265-026-02303-3">https://doi.org/10.1007/s40265-026-02303-3</a>. Acesso em: 15 set. 2026.</li>
+
+      <li>DUBIN, S.; PATAK, P.; JUNG, D. <strong>Update on asthma management guidelines</strong>. <em>Missouri Medicine</em>, v. 121, n. 5, p. 364-367, 2024. Disponível em: <a href="https://pubmed.ncbi.nlm.nih.gov/39421468/">https://pubmed.ncbi.nlm.nih.gov/39421468/</a>. Acesso em: 15 set. 2026.</li>
+
+      <li>LEVY, M. L. <em>et al.</em> <strong>Key recommendations for primary care from the 2022 Global Initiative for Asthma (GINA) update</strong>. <em>npj Primary Care Respiratory Medicine</em>, v. 33, n. 1, p. 7, 2023. DOI: 10.1038/s41533-023-00330-1. Disponível em: <a href="https://doi.org/10.1038/s41533-023-00330-1">https://doi.org/10.1038/s41533-023-00330-1</a>. Acesso em: 15 set. 2026.</li>
+
+      <li>MEULMEESTER, F. L. <em>et al.</em> <strong>Inflammatory and clinical risk factors for asthma attacks (ORACLE2): a patient-level meta-analysis of control groups of 22 randomised trials</strong>. <em>The Lancet Respiratory Medicine</em>, v. 13, n. 6, p. 505-516, 2025. DOI: 10.1016/S2213-2600(25)00037-2. Disponível em: <a href="https://doi.org/10.1016/S2213-2600(25)00037-2">https://doi.org/10.1016/S2213-2600(25)00037-2</a>. Acesso em: 15 set. 2026.</li>
+
+      <li>PINHEIRO, D. H. A. <em>et al.</em> <strong>Asthma in the Brazilian Unified Health Care System: an epidemiological analysis from 2008 to 2021</strong>. <em>Jornal Brasileiro de Pneumologia</em>, São Paulo, v. 50, n. 2, e20230364, 2024. DOI: 10.36416/1806-3756/e20230364. Disponível em: <a href="https://doi.org/10.36416/1806-3756/e20230364">https://doi.org/10.36416/1806-3756/e20230364</a>. Acesso em: 15 set. 2026.</li>
+
+      <li>PITREZ, P. M. <em>et al.</em> <strong>Baseline characteristics of patients from the Brazilian Severe Asthma Registry: the REBRAG study</strong>. <em>Jornal Brasileiro de Pneumologia</em>, São Paulo, v. 51, n. 3, e20240427, 2025. DOI: 10.36416/1806-3756/e20240427. Disponível em: <a href="https://doi.org/10.36416/1806-3756/e20240427">https://doi.org/10.36416/1806-3756/e20240427</a>. Acesso em: 15 set. 2026.</li>
+
+      <li>PIZZICHINI, M. M. M. <em>et al.</em> <strong>2020 Brazilian Thoracic Association recommendations for the management of asthma</strong>. <em>Jornal Brasileiro de Pneumologia</em>, São Paulo, v. 46, n. 1, e20190307, 2020. DOI: 10.1590/1806-3713/e20190307. Disponível em: <a href="https://doi.org/10.1590/1806-3713/e20190307">https://doi.org/10.1590/1806-3713/e20190307</a>. Acesso em: 15 set. 2026.</li>
+
+      <li>RANG, H. P. <em>et al.</em> <strong>Rang &amp; Dale: farmacologia</strong>. 9. ed. Rio de Janeiro: Guanabara Koogan, 2020.</li>
+
+      <li>ROIO, L. C. D. <em>et al.</em> <strong>Work-related asthma</strong>. <em>Jornal Brasileiro de Pneumologia</em>, São Paulo, v. 47, n. 4, e20200577, 2021. DOI: 10.36416/1806-3756/e20200577. Disponível em: <a href="https://doi.org/10.36416/1806-3756/e20200577">https://doi.org/10.36416/1806-3756/e20200577</a>. Acesso em: 15 set. 2026.</li>
+
+      <li>SHENG, W. <em>et al.</em> <strong>Procalcitonin-guided use of antibiotic in hospitalized patients with acute exacerbation of chronic obstructive pulmonary disease: a randomized clinical trial</strong>. <em>Clinical Microbiology and Infection</em>, v. 31, n. 5, p. 785-792, 2025. DOI: 10.1016/j.cmi.2024.12.004. Disponível em: <a href="https://doi.org/10.1016/j.cmi.2024.12.004">https://doi.org/10.1016/j.cmi.2024.12.004</a>. Acesso em: 15 set. 2026.</li>
+
+      <li>GOMES, L. <em>et al.</em> <strong>Performance of risk scores in patients with acute exacerbations of COPD</strong>. <em>Jornal Brasileiro de Pneumologia</em>, São Paulo, v. 49, n. 5, e20230032, 2023. DOI: 10.36416/1806-3756/e20230032. Disponível em: <a href="https://doi.org/10.36416/1806-3756/e20230032">https://doi.org/10.36416/1806-3756/e20230032</a>. Acesso em: 15 set. 2026.</li>
+
+      <li>PINTO, R. M. C. <strong>Farmacologia do sistema respiratório</strong>. [Material de aula]. 18 slides, color. 2026.</li>
+    </ol>
+
+    <div class="box alerta">
+      <p class="rot">Para citar no texto (ABNT, autor-data)</p>
+      <p>Um autor: (PIZZICHINI, 2020). Até três: (DUBIN; PATAK; JUNG, 2024). Mais de três: (CARVALHO-PINTO <em>et al.</em>, 2021). Citação direta com mais de 3 linhas: recuo de 4 cm, fonte menor, sem aspas, espaçamento simples.</p>
+    </div>
+  </section>
+
+  <footer class="pe">
+    <p>Material de estudo montado a partir dos 18 slides da aula, expandido com as recomendações da Sociedade Brasileira de Pneumologia e Tisiologia (SciELO / Jornal Brasileiro de Pneumologia) e artigos indexados na PubMed. Referências completas em ABNT acima — as informações de artigos foram obtidas via PubMed e cada uma traz seu DOI.</p>
+    <p>Conteúdo para estudo. Prescrição e conduta seguem o protocolo do serviço e a bula.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var LS_KEY = "farmaco-resp-v1";
+  var estado = {};            // id -> índice escolhido
+  var total = 0;
+
+  function carregar(){
+    try{
+      var raw = localStorage.getItem(LS_KEY);
+      if(raw) estado = JSON.parse(raw) || {};
+    }catch(e){ estado = {}; }
+  }
+  function salvar(){
+    try{ localStorage.setItem(LS_KEY, JSON.stringify(estado)); }catch(e){}
+  }
+
+  function esc(s){
+    return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+  // permite <b> <em> <strong> <code> nos enunciados escritos por nós
+  function rico(s){ return String(s); }
+
+  var LETRAS = ["A","B","C","D","E"];
+
+  function montarQuestao(q, numero){
+    var art = document.createElement("article");
+    art.className = "q";
+    art.id = "q-" + q.id;
+
+    var num = document.createElement("span");
+    num.className = "num";
+    num.textContent = "Questão " + numero;
+    art.appendChild(num);
+
+    var en = document.createElement("p");
+    en.className = "enun";
+    en.innerHTML = rico(q.q);
+    art.appendChild(en);
+
+    var ops = document.createElement("div");
+    ops.className = "ops";
+    ops.setAttribute("role","group");
+
+    q.o.forEach(function(texto, i){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "op";
+      b.id = "op-" + q.id + "-" + i;
+      b.innerHTML = '<span class="letra">' + LETRAS[i] + '</span><span class="txt">' + rico(texto) + '</span>';
+      b.addEventListener("click", function(){
+        if(estado[q.id] !== undefined) return;
+        estado[q.id] = i;
+        salvar();
+        aplicar(art, q, i);
+        atualizarPlacar();
+      });
+      ops.appendChild(b);
+    });
+    art.appendChild(ops);
+
+    var fb = document.createElement("div");
+    fb.className = "fb";
+    fb.hidden = true;
+    fb.setAttribute("aria-live","polite");
+    art.appendChild(fb);
+
+    if(estado[q.id] !== undefined) aplicar(art, q, estado[q.id]);
+    return art;
+  }
+
+  function aplicar(art, q, escolha){
+    var botoes = art.querySelectorAll(".op");
+    for(var i=0;i<botoes.length;i++){
+      botoes[i].disabled = true;
+      botoes[i].classList.remove("certa","errada");
+      var marca = botoes[i].querySelector(".marca");
+      if(marca) marca.remove();
+      if(i === q.c){
+        botoes[i].classList.add("certa");
+        var m = document.createElement("span");
+        m.className = "marca";
+        m.textContent = (i === escolha) ? "✓ sua resposta" : "✓ correta";
+        botoes[i].appendChild(m);
+      }else if(i === escolha){
+        botoes[i].classList.add("errada");
+        var m2 = document.createElement("span");
+        m2.className = "marca";
+        m2.textContent = "✗ sua resposta";
+        botoes[i].appendChild(m2);
+      }
+    }
+    var acertou = (escolha === q.c);
+    var fb = art.querySelector(".fb");
+    fb.className = "fb " + (acertou ? "acerto" : "erro");
+    fb.hidden = false;
+    fb.innerHTML =
+      '<span class="veredito">' + (acertou ? "Acertou" : "Errou — gabarito: " + LETRAS[q.c]) + "</span>" +
+      "<p>" + rico(q.e) + "</p>" +
+      (q.x ? '<p><strong>Por que as outras não:</strong> ' + rico(q.x) + "</p>" : "");
+  }
+
+  function montarQuiz(container, lista, rotulo){
+    container.innerHTML = "";
+    if(!lista.length) return;
+    var cab = document.createElement("div");
+    cab.className = "quiz-cab";
+    cab.innerHTML = '<h4>' + esc(rotulo || "Checagem rápida") + '</h4><span class="cont">' + lista.length + (lista.length>1?" questões":" questão") + '</span>';
+    container.appendChild(cab);
+    lista.forEach(function(q, i){
+      container.appendChild(montarQuestao(q, i + 1));
+    });
+  }
+
+  function atualizarPlacar(){
+    var resp = 0, ok = 0;
+    TODAS.forEach(function(q){
+      if(estado[q.id] !== undefined){
+        resp++;
+        if(estado[q.id] === q.c) ok++;
+      }
+    });
+    var bad = resp - ok;
+    document.getElementById("p-resp").textContent = resp;
+    document.getElementById("p-tot").textContent = total;
+    document.getElementById("p-ok").textContent = ok;
+    document.getElementById("p-bad").textContent = bad;
+    document.getElementById("p-pct").textContent = resp ? Math.round(ok / resp * 100) + "%" : "—";
+    document.getElementById("p-barra").style.width = total ? (resp / total * 100) + "%" : "0%";
+    montarResultado(resp, ok, bad);
+  }
+
+  function montarResultado(resp, ok, bad){
+    var el = document.getElementById("resultado-final");
+    if(!el) return;
+    if(!resp){
+      el.innerHTML = '<div class="resultado"><div class="linha"><span>Nenhuma questão respondida ainda</span><b>—</b></div></div>';
+      return;
+    }
+    var porTema = {};
+    TODAS.forEach(function(q){
+      if(estado[q.id] === undefined) return;
+      var t = q.rot || q.t;
+      if(!porTema[t]) porTema[t] = {ok:0, n:0};
+      porTema[t].n++;
+      if(estado[q.id] === q.c) porTema[t].ok++;
+    });
+    var linhas = "";
+    Object.keys(porTema).forEach(function(t){
+      var d = porTema[t];
+      linhas += '<div class="linha"><span>' + esc(t) + '</span><b>' + d.ok + "/" + d.n + "</b></div>";
+    });
+    var pct = Math.round(ok / resp * 100);
+    var recado = pct >= 85 ? "Tá dominando. Foca nos erros pontuais."
+               : pct >= 70 ? "Bom nível. Reveja os módulos onde o placar caiu."
+               : pct >= 50 ? "Base existe, mas tem buraco. Releia os módulos vermelhos antes de refazer."
+               : "Volta pro conteúdo antes de responder mais — questão errada demais fixa erro.";
+    el.innerHTML =
+      '<div class="resultado">' +
+        '<div class="linha"><span><strong>Total</strong></span><b>' + ok + "/" + resp + " (" + pct + "%)</b></div>" +
+        linhas +
+        '<div class="linha" style="border-top:1px solid var(--line);margin-top:6px;padding-top:10px"><span>' + esc(recado) + "</span><b></b></div>" +
+      "</div>";
+  }
+
+  function montarCasos(){
+    var alvo = document.getElementById("casos-lista");
+    if(!alvo) return;
+    CASOS.forEach(function(caso, idx){
+      var perguntas = caso.qs;
+      if(filtroErradas){
+        perguntas = perguntas.filter(function(q){ return estado[q.id] !== undefined && estado[q.id] !== q.c; });
+        if(!perguntas.length) return;
+      }
+      var art = document.createElement("article");
+      art.className = "caso";
+
+      var head = document.createElement("header");
+      head.innerHTML = '<p class="cenario">Caso ' + (idx+1) + " · " + esc(caso.cenario) + "</p><h3>" + esc(caso.titulo) + "</h3>";
+      art.appendChild(head);
+
+      var corpo = document.createElement("div");
+      corpo.className = "corpo";
+
+      var v = document.createElement("p");
+      v.className = "vinheta";
+      v.innerHTML = rico(caso.vinheta);
+      corpo.appendChild(v);
+
+      if(caso.ficha && caso.ficha.length){
+        var dl = document.createElement("dl");
+        dl.className = "ficha";
+        caso.ficha.forEach(function(par){
+          var d = document.createElement("div");
+          d.innerHTML = "<dt>" + esc(par[0]) + "</dt><dd>" + esc(par[1]) + "</dd>";
+          dl.appendChild(d);
+        });
+        corpo.appendChild(dl);
+      }
+
+      var qz = document.createElement("div");
+      qz.className = "quiz";
+      montarQuiz(qz, perguntas, "Decisão clínica");
+      corpo.appendChild(qz);
+
+      if(caso.fecho){
+        var f = document.createElement("div");
+        f.className = "box prova";
+        f.innerHTML = '<p class="rot">Fechando o caso</p><p>' + rico(caso.fecho) + "</p>";
+        corpo.appendChild(f);
+      }
+
+      art.appendChild(corpo);
+      alvo.appendChild(art);
+    });
+  }
+
+  var TODAS = [];
+  var filtroErradas = false;
+
+  function renderizar(){
+    // questões por módulo
+    document.querySelectorAll('.quiz[data-tema]').forEach(function(c){
+      var tema = c.getAttribute("data-tema");
+      var lista = BANCO.filter(function(q){ return q.t === tema; });
+      if(filtroErradas){
+        lista = lista.filter(function(q){ return estado[q.id] !== undefined && estado[q.id] !== q.c; });
+        if(!lista.length){ c.innerHTML = ""; return; }
+      }
+      montarQuiz(c, lista, tema === "sim" ? "Simulado" : "Checagem rápida");
+    });
+    // casos
+    var alvo = document.getElementById("casos-lista");
+    if(alvo){ alvo.innerHTML = ""; montarCasos(); }
+    atualizarPlacar();
+  }
+
+  function iniciar(){
+    carregar();
+    TODAS = BANCO.slice();
+    CASOS.forEach(function(c){ TODAS = TODAS.concat(c.qs); });
+    total = TODAS.length;
+
+    renderizar();
+
+    var be = document.getElementById("btn-erradas");
+    var bt = document.getElementById("btn-todas");
+    var bz = document.getElementById("btn-zerar");
+    if(be) be.addEventListener("click", function(){ filtroErradas = true; renderizar(); document.getElementById("m1").scrollIntoView({behavior:"smooth"}); });
+    if(bt) bt.addEventListener("click", function(){ filtroErradas = false; renderizar(); });
+    if(bz) bz.addEventListener("click", function(){
+      estado = {}; salvar(); filtroErradas = false; renderizar();
+    });
+  }
+
+  window.__iniciarFarmaco = iniciar;
+  window.__setDados = function(banco, casos){ window.BANCO = banco; window.CASOS = casos; };
+  Object.defineProperty(window, "__estado", {get:function(){return estado;}});
+
+  // expõe para o bloco de dados abaixo
+  window.__montar = iniciar;
+})();
+</script>
+
+<script>
+var BANCO = [
+/* ---------------- MÓDULO 1 ---------------- */
+{id:"a1",t:"m1",q:"A asma é definida pela combinação de três fenômenos. Qual alternativa os reúne corretamente?",
+ o:["Inflamação crônica das vias aéreas, hiper-reatividade brônquica e obstrução reversível ao fluxo aéreo",
+    "Destruição alveolar, fibrose de pequenas vias aéreas e obstrução fixa",
+    "Infecção crônica, bronquiectasias e hipersecreção mucosa",
+    "Hipertensão pulmonar, cor pulmonale e hipoxemia crônica"],
+ c:0,
+ e:"Essa é a tríade da asma, e ela organiza todo o tratamento: o corticoide ataca a inflamação, o broncodilatador alivia a obstrução, e a hiper-reatividade cai como consequência do controle da inflamação.",
+ x:"A segunda descreve a <b>DPOC/enfisema</b> — justamente a doença de obstrução <i>não</i> reversível. A terceira descreve bronquiectasias. A quarta é a complicação tardia da hipoxemia crônica, típica da DPOC avançada."},
+
+{id:"a2",t:"m1",q:"Um paciente usa salbutamol três vezes por semana e se diz 'controlado'. Qual camada da doença o salbutamol está tratando?",
+ o:["Apenas a obstrução ao fluxo aéreo — a inflamação segue ativa",
+    "A inflamação crônica, por inibir citocinas Th2",
+    "A hiper-reatividade brônquica, por dessensibilizar as fibras C",
+    "As três camadas simultaneamente"],
+ c:0,
+ e:"O β₂-agonista relaxa o músculo liso e melhora o sintoma, mas não toca na inflamação nem na hiper-reatividade. Por isso 'estar bem com bombinha azul' é uma falsa sensação de controle — a doença continua remodelando o brônquio.",
+ x:"Inibir citocinas Th2 é o glicocorticoide. Nada na aula dessensibiliza fibras C farmacologicamente — elas ficam expostas pela perda de epitélio."},
+
+{id:"a3",t:"m1",q:"Por que os corticosteroides são considerados o pilar do tratamento da asma?",
+ o:["São os únicos fármacos que inibem a ativação dos linfócitos T e a resposta inflamatória das vias aéreas",
+    "São os broncodilatadores mais potentes disponíveis",
+    "Têm o início de ação mais rápido entre todos os antiasmáticos",
+    "São os únicos que podem ser administrados por via inalatória"],
+ c:0,
+ e:"Essa é a frase do slide e ela é literal: nenhuma outra classe desliga a ativação linfocitária. O corticoide age a montante, na transcrição das citocinas Th2.",
+ x:"O corticoide <b>não</b> é broncodilatador e tem início lento (dias a semanas para efeito pleno) — o oposto das outras duas alternativas. E vários fármacos são inalatórios."},
+
+{id:"a4",t:"m1",q:"Sobre a asma grave aguda (estado de mal asmático), é correto afirmar:",
+ o:["Cursa com hipoxemia, pode ser fatal e exige hospitalização imediata",
+    "É um quadro benigno que se resolve com broncodilatador oral domiciliar",
+    "Caracteriza-se por hipercapnia desde o início, por depressão do centro respiratório",
+    "É exclusiva de adultos com mais de 60 anos"],
+ c:0,
+ e:"É a apresentação que mata. Hipoxemia, risco de parada e necessidade de hospitalização — reconhecer isso é a parte da aula que tem consequência direta no plantão.",
+ x:"O esperado no início é <b>hipocapnia</b> por hiperventilação; a hipercapnia aparece depois, por fadiga muscular, e é sinal de alarme. E asma grave aguda ocorre em qualquer idade, inclusive em crianças."},
+
+/* ---------------- MÓDULO 2 ---------------- */
+{id:"b1",t:"m2",q:"Qual é a janela de tempo da fase tardia da crise asmática após a exposição ao alérgeno?",
+ o:["4 a 8 horas","0 a 2 horas","30 a 60 minutos","24 a 48 horas"],
+ c:0,
+ e:"Fase imediata em 0–2 h (broncoespasmo por mediadores de mastócito); fase tardia em 4–8 h (inflamação com Th2 e eosinófilos). São os dois números da aula.",
+ x:"0–2 h é a fase imediata. 30–60 min está dentro da imediata. 24–48 h é tempo de resposta tardia tipo IV, outro tipo de hipersensibilidade."},
+
+{id:"b2",t:"m2",q:"A célula central da fase imediata da crise asmática é:",
+ o:["O mastócito, que degranula por ligação cruzada de IgE",
+    "O eosinófilo ativado por IL-5",
+    "O macrófago alveolar",
+    "O linfócito T CD8⁺ citotóxico"],
+ c:0,
+ e:"Na reexposição, o alérgeno faz ligação cruzada de duas IgE fixadas ao FcεRI do mastócito, que degranula na hora e libera os espasmogênicos.",
+ x:"O eosinófilo é a célula da <b>fase tardia</b>. Macrófago e CD8⁺ são o perfil inflamatório da <b>DPOC</b>, não da asma."},
+
+{id:"b3",t:"m2",q:"Entre os mediadores liberados na crise asmática, qual tem papel essencialmente <b>quimiotático</b>, e não de broncoconstrição direta?",
+ o:["Leucotrieno B₄ (LTB₄)",
+    "Leucotrieno D₄ (LTD₄)",
+    "Histamina",
+    "Prostaglandina D₂"],
+ c:0,
+ e:"O LTB₄ recruta neutrófilos e eosinófilos para o local — é quimiotático. Os espasmogênicos, que contraem o músculo liso, são histamina, PGD₂ e os cisteinil-leucotrienos (C₄, D₄, E₄).",
+ x:"LTD₄ é cisteinil-leucotrieno, broncoconstritor potente (alvo do montelucaste). Histamina e PGD₂ também são espasmogênicos da fase imediata."},
+
+{id:"b4",t:"m2",q:"Qual classe é capaz de inibir a fase tardia da crise asmática?",
+ o:["Glicocorticoides","Agonistas β₂ de curta ação","Antagonistas muscarínicos","Antitussígenos opioides"],
+ c:0,
+ e:"A fase imediata é revertida por β₂-agonistas, antagonistas de CysLT e teofilina. A fase tardia — inflamatória — é inibida pelos glicocorticoides.",
+ x:"β₂ e antimuscarínico atuam sobre o músculo liso, ou seja, sobre a fase imediata. Antitussígeno não tem nenhum papel aqui."},
+
+{id:"b5",t:"m2",q:"Um paciente chega ao pronto-socorro com crise asmática, melhora bem após duas nebulizações com salbutamol e quer ir embora. Por que ainda assim se prescreve corticoide sistêmico?",
+ o:["Para bloquear a fase tardia, que ainda vai ocorrer 4–8 h depois e pode trazer a crise de volta",
+    "Porque o corticoide potencializa imediatamente o efeito broncodilatador do salbutamol já administrado",
+    "Para tratar uma provável infecção bacteriana associada",
+    "Porque sem corticoide o salbutamol causa hipocalemia grave"],
+ c:0,
+ e:"Você está tratando um pico inflamatório que ainda não aconteceu. Sem corticoide, a chance de recidiva e de nova ida ao PS em horas é alta.",
+ x:"O corticoide realmente suprarregula receptores β₂, mas isso leva horas — não é efeito imediato. Não há indicação de antibiótico de rotina, e a hipocalemia do β₂ não é prevenida por corticoide (ao contrário: corticoide também espolia potássio)."},
+
+/* ---------------- MÓDULO 3 ---------------- */
+{id:"c1",t:"m3",q:"A citocina Th2 responsável pela maturação, recrutamento e sobrevida do eosinófilo é:",
+ o:["IL-5","IL-4","IL-13","IL-10"],
+ c:0,
+ e:"IL-5 é a citocina do eosinófilo. É por isso que mepolizumabe e reslizumabe (anti-IL-5) e benralizumabe (anti-IL-5Rα) são os biológicos da asma eosinofílica.",
+ x:"IL-4 e IL-13 fazem a troca de classe para IgE (a IL-13 ainda faz muco e hiper-reatividade). IL-10 é anti-inflamatória — inclusive é <i>aumentada</i> pelo corticoide."},
+
+{id:"c2",t:"m3",q:"Quais citocinas induzem o linfócito B a produzir IgE?",
+ o:["IL-4 e IL-13","IL-5 e IL-17","IFN-γ e IL-12","TNF-α e IL-1β"],
+ c:0,
+ e:"IL-4 e IL-13 fazem a troca de classe de imunoglobulina para IgE. Por isso o dupilumabe, que bloqueia a subunidade IL-4Rα, derruba as duas vias de uma vez.",
+ x:"IFN-γ e IL-12 são o eixo Th1, que <i>contrapõe</i> o Th2. TNF-α e IL-1β são inflamatórias inespecíficas."},
+
+{id:"c3",t:"m3",q:"O ponto da cascata em que o glicocorticoide interfere de forma mais decisiva é:",
+ o:["A produção de citocinas Th2 (IL-4, IL-5, IL-13) — ele age a montante, desligando a fonte",
+    "A ligação da IgE ao receptor FcεRI do mastócito",
+    "O receptor CysLT₁ do músculo liso",
+    "A enzima fosfodiesterase"],
+ c:0,
+ e:"O corticoide reduz a transcrição das citocinas Th2. Ele não bloqueia um produto final — desliga a fábrica. Daí ser o único fármaco modificador da doença.",
+ x:"Impedir a ligação da IgE ao FcεRI é o omalizumabe. CysLT₁ é o montelucaste. Fosfodiesterase é a teofilina (e o roflumilaste na DPOC)."},
+
+{id:"c4",t:"m3",q:"Na asma crônica grave, a perda do epitélio brônquico amplifica a hiper-reatividade porque:",
+ o:["Expõe receptores de irritantes e fibras C, que passam a disparar com estímulos triviais",
+    "Reduz a produção de surfactante alveolar",
+    "Impede a chegada do corticoide inalatório ao músculo liso",
+    "Aumenta a produção de IgA secretora"],
+ c:0,
+ e:"Sem a barreira epitelial, terminações nervosas ficam expostas. Ar frio, fumaça, riso ou exercício passam a deflagrar broncoespasmo — é o círculo vicioso inflamação → descamação → hiper-reatividade → mais inflamação.",
+ x:"Surfactante é produzido pelo pneumócito tipo II no alvéolo, não pelo epitélio brônquico, e não tem relação com a asma. As outras duas não têm base fisiopatológica."},
+
+{id:"c5",t:"m3",q:"Qual alteração do remodelamento é a que mais contribui para a obstrução deixar de ser totalmente reversível?",
+ o:["Espessamento da membrana basal por fibrose subepitelial",
+    "Edema de parede e vasos dilatados",
+    "Tampão de muco com células descamadas",
+    "Infiltração de eosinófilos na mucosa"],
+ c:0,
+ e:"Edema, muco e infiltrado são potencialmente reversíveis com tratamento. Fibrose subepitelial é alteração estrutural — é ela que cronifica a obstrução, e é por isso que tratar cedo com corticoide inalatório importa tanto.",
+ x:"Edema responde ao corticoide (que reduz permeabilidade microvascular), o tampão de muco pode ser removido, e o infiltrado eosinofílico regride com tratamento anti-inflamatório."},
+
+/* ---------------- MÓDULO 4 ---------------- */
+{id:"d1",t:"m4",q:"O mecanismo de broncodilatação dos agonistas β₂ envolve:",
+ o:["Receptor acoplado à proteína Gs → ativação da adenilil ciclase → ↑ AMPc → relaxamento do músculo liso",
+    "Bloqueio de receptores M₃ do músculo liso brônquico",
+    "Inibição da fosfodiesterase com acúmulo de GMPc",
+    "Antagonismo do receptor CysLT₁"],
+ c:0,
+ e:"Gs → adenilil ciclase → AMPc → PKA → queda do cálcio livre e inativação da quinase da cadeia leve de miosina = relaxamento. Essa cadeia inteira costuma ser pedida com nome e sobrenome.",
+ x:"Bloqueio de M₃ é o ipratrópio/tiotrópio. Inibição de fosfodiesterase é a teofilina — e ela acumula AMPc, não GMPc. CysLT₁ é o montelucaste."},
+
+{id:"d2",t:"m4",q:"O tremor fino de extremidades, efeito adverso mais comum do salbutamol, decorre de:",
+ o:["Estímulo de receptores β₂ no músculo esquelético",
+    "Estímulo de receptores β₁ no nó sinoatrial",
+    "Bloqueio de receptores muscarínicos centrais",
+    "Hipoglicemia induzida pelo fármaco"],
+ c:0,
+ e:"Existem receptores β₂ no músculo esquelético, e é ali que nasce o tremor. Não é neurológico central nem metabólico.",
+ x:"β₁ no nó sinoatrial explica a taquicardia, não o tremor. O salbutamol não bloqueia muscarínico. E ele causa <b>hiper</b>glicemia, não hipoglicemia."},
+
+{id:"d3",t:"m4",q:"Um paciente em crise recebe doses repetidas de salbutamol nebulizado e evolui com potássio sérico de 2,9 mEq/L. A explicação é:",
+ o:["O estímulo β₂ ativa a Na⁺/K⁺-ATPase e desloca potássio para dentro da célula",
+    "O salbutamol aumenta a excreção renal de potássio por efeito mineralocorticoide",
+    "Houve perda gastrointestinal de potássio por vômitos",
+    "O salbutamol quela potássio no plasma"],
+ c:0,
+ e:"É redistribuição, não perda. O potássio total do corpo continua o mesmo — ele apenas entrou nas células. Vira problema quando soma corticoide sistêmico, diurético ou hipoxemia, porque o risco de arritmia sobe.",
+ x:"Efeito mineralocorticoide é dos corticoides, não do β₂ (e mesmo assim é perda renal, não redistribuição). As outras duas não existem farmacologicamente."},
+
+{id:"d4",t:"m4",q:"Qual LABA pode ser usado como medicação de resgate, e por quê?",
+ o:["Formoterol, porque tem início de ação em 1–3 min, comparável ao do salbutamol",
+    "Salmeterol, porque é o LABA de maior potência",
+    "Vilanterol, porque tem duração de 24 h",
+    "Nenhum LABA pode ser usado como resgate, em nenhuma circunstância"],
+ c:0,
+ e:"O formoterol junta início rápido com duração longa. É essa propriedade que permite o esquema de corticoide + formoterol como resgate anti-inflamatório e o MART.",
+ x:"Salmeterol é agonista parcial de início lento (10–20 min) — não serve para aliviar uma crise. Duração longa não tem nada a ver com velocidade de início. E a última é a armadilha: o formoterol pode, desde que dentro de um dispositivo com corticoide."},
+
+{id:"d5",t:"m4",q:"Sobre o uso de LABA na asma, é correto afirmar:",
+ o:["Nunca deve ser usado em monoterapia — sempre associado a corticoide inalatório, pelo risco de exacerbações graves e morte",
+    "Pode ser usado isoladamente desde que em dose baixa",
+    "É a medicação de primeira linha isolada nos casos leves",
+    "Está contraindicado em qualquer situação na asma"],
+ c:0,
+ e:"O estudo SMART mostrou aumento de eventos graves e mortes com salmeterol isolado, gerando o alerta do FDA. As combinações fixas CI+LABA se mostraram seguras nos estudos posteriores, mas a regra 'LABA sempre com corticoide' segue valendo na asma.",
+ x:"Dose baixa não protege. LABA isolado não é primeira linha em nada na asma. E a última exagera: LABA <i>combinado</i> com CI é peça central do tratamento — o contraindicado é a monoterapia."},
+
+{id:"d6",t:"m4",q:"A duração de ação do salbutamol inalatório e o seu tempo até o efeito máximo são, respectivamente:",
+ o:["3–6 horas, com efeito máximo em cerca de 30 minutos",
+    "12 horas, com efeito máximo em 2 horas",
+    "24 horas, com efeito máximo em 10 minutos",
+    "1 hora, com efeito máximo em 5 minutos"],
+ c:0,
+ e:"Início em 3–5 min, pico em ~30 min, duração de 3–6 h. É por isso que ele é medicação 'conforme a necessidade' e não de manutenção.",
+ x:"12 h é perfil de LABA; 24 h é de LAMA/LABA ultralongo; 1 h não corresponde a nenhum broncodilatador inalatório."},
+
+/* ---------------- MÓDULO 5 ---------------- */
+{id:"e1",t:"m5",q:"O principal receptor muscarínico responsável pela broncoconstrição mediada pela acetilcolina é:",
+ o:["M₃","M₁","M₂","M₄"],
+ c:0,
+ e:"M₃ no músculo liso e nas glândulas submucosas. Bloqueá-lo dá broncodilatação e reduz a secreção de muco — os dois efeitos úteis da classe.",
+ x:"M₁ está em gânglios e no SNC; M₂ é autorreceptor pré-sináptico (inibe a liberação de ACh, ou seja, bloqueá-lo <i>atrapalha</i>); M₄ é predominantemente central."},
+
+{id:"e2",t:"m5",q:"O ipratrópio é bem tolerado e praticamente desprovido de efeitos centrais porque:",
+ o:["É um derivado quaternário da atropina, com carga positiva permanente e pouca absorção pela mucosa",
+    "É metabolizado integralmente pelo pulmão antes de atingir a circulação",
+    "Tem meia-vida ultracurta, de poucos segundos",
+    "É um pró-fármaco que só é ativado no músculo liso brônquico"],
+ c:0,
+ e:"Amônio quaternário não atravessa bem membranas nem a barreira hematoencefálica. É a mesma lógica que separa o ipratrópio da atropina, que é amina terciária e dá efeitos centrais.",
+ x:"O pró-fármaco ativado localmente é a <b>ciclesonida</b> (corticoide), não o ipratrópio. As outras duas não são verdadeiras."},
+
+{id:"e3",t:"m5",q:"Sobre o tiotrópio:",
+ o:["Tem ação prolongada (cerca de 24 h) e é amplamente usado na DPOC, podendo ser add-on na asma",
+    "Tem duração de 3–5 h e é usado como resgate na crise",
+    "É um agonista β₂ de longa duração",
+    "Só pode ser administrado por via intravenosa"],
+ c:0,
+ e:"Tiotrópio é LAMA: dissocia lentamente do M₃, o que dá seletividade cinética e duração de ~24 h, com posologia de uma vez ao dia.",
+ x:"3–5 h é o perfil do <b>ipratrópio</b>. Tiotrópio é antimuscarínico, não β₂. E a via é inalatória (cápsula ou névoa suave)."},
+
+{id:"e4",t:"m5",q:"Paciente idoso com glaucoma faz nebulização com ipratrópio usando máscara mal ajustada. O risco específico é:",
+ o:["Crise de glaucoma agudo de ângulo fechado por midríase induzida pela névoa que atinge os olhos",
+    "Ceratite química pelo propelente",
+    "Catarata subcapsular posterior aguda",
+    "Descolamento de retina"],
+ c:0,
+ e:"Antimuscarínico em contato com o olho dilata a pupila e pode fechar o ângulo. Conduta: bocal em vez de máscara, ou máscara bem vedada, em quem tem glaucoma de ângulo estreito.",
+ x:"Catarata subcapsular posterior é efeito de corticoide sistêmico prolongado, e é crônica, não aguda. As outras não são complicações descritas."},
+
+{id:"e5",t:"m5",q:"A afirmação 'o ipratrópio não discrimina subtipos muscarínicos' tem como consequência prática:",
+ o:["Ele bloqueia também o autorreceptor M₂ pré-sináptico, que normalmente freia a liberação de acetilcolina, antagonizando em parte o próprio efeito",
+    "Ele perde completamente o efeito broncodilatador",
+    "Ele passa a estimular a secreção de muco",
+    "Ele se torna um agonista parcial em M₃"],
+ c:0,
+ e:"Bloquear o M₂ tira um freio e libera mais acetilcolina na fenda, competindo com o fármaco. É a vantagem teórica do tiotrópio, que se dissocia rápido do M₂ e lentamente do M₃.",
+ x:"O efeito broncodilatador existe e é clinicamente útil — apenas não é maximizado. Antimuscarínico <i>reduz</i> muco, e não há conversão em agonista."},
+
+/* ---------------- MÓDULO 6 ---------------- */
+{id:"f1",t:"m6",q:"Os dois mecanismos clássicos da teofilina são:",
+ o:["Inibição de fosfodiesterases e bloqueio de receptores de adenosina",
+    "Ativação de receptores β₂ e bloqueio de M₃",
+    "Inibição da 5-lipoxigenase e bloqueio de CysLT₁",
+    "Inibição da COX-1 e da COX-2"],
+ c:0,
+ e:"Inibir PDE acumula AMPc (broncodilatação, mesma via final do β₂). Bloquear adenosina também broncodilata — mas é daí que vêm as arritmias e as convulsões da intoxicação.",
+ x:"As demais descrevem, respectivamente, β₂/antimuscarínico, zileutona/montelucaste e AINEs."},
+
+{id:"f2",t:"m6",q:"A faixa terapêutica da teofilina citada na aula é:",
+ o:["30–100 µmol/L","100–300 µmol/L","5–15 µmol/L","500–1000 µmol/L"],
+ c:0,
+ e:"30–100 µmol/L (aproximadamente 5–20 mg/L). É uma janela estreita, e é por isso que a teofilina exige monitorização sérica e caiu para linhas posteriores de tratamento.",
+ x:"As outras faixas não correspondem: abaixo não há efeito, e acima já é território de toxicidade grave."},
+
+{id:"f3",t:"m6",q:"Paciente em uso crônico de teofilina recebe <b>ciprofloxacino</b> para uma infecção. O que se espera?",
+ o:["Aumento dos níveis séricos de teofilina, com risco de náusea, arritmia e convulsão",
+    "Redução dos níveis de teofilina, com perda do controle da asma",
+    "Nenhuma interação relevante",
+    "Inativação do ciprofloxacino pela teofilina"],
+ c:0,
+ e:"O ciprofloxacino inibe o CYP1A2, principal via de metabolização da teofilina. O nível sobe e o paciente intoxica. Mesmo raciocínio vale para eritromicina, claritromicina, fluvoxamina e cimetidina.",
+ x:"Quem <i>reduz</i> o nível são indutores: tabagismo, rifampicina, fenitoína, carbamazepina. Dizer que não há interação é exatamente o erro que gera convulsão no plantão."},
+
+{id:"f4",t:"m6",q:"Um paciente que usa teofilina há anos para de fumar. A conduta correta quanto ao fármaco é:",
+ o:["Monitorar o nível sérico e considerar reduzir a dose, porque a perda da indução do CYP1A2 eleva a concentração",
+    "Aumentar a dose, porque a cessação reduz a absorção pulmonar",
+    "Manter a mesma dose, pois o tabagismo não afeta a teofilina",
+    "Suspender abruptamente a teofilina"],
+ c:0,
+ e:"A fumaça de cigarro induz o CYP1A2. Fumante metaboliza teofilina mais rápido e usa dose maior; ao parar, a mesma dose vira dose tóxica. É uma das pegadinhas favoritas de prova.",
+ x:"A teofilina é oral/IV — absorção pulmonar não entra na conta. E suspender abruptamente perde o efeito terapêutico sem necessidade."},
+
+{id:"f5",t:"m6",q:"Entre os efeitos adversos da teofilina, os que caracterizam intoxicação grave são:",
+ o:["Arritmias cardíacas e crises convulsivas","Candidíase oral e disfonia","Retenção urinária e boca seca","Tremor fino e hipocalemia"],
+ c:0,
+ e:"Arritmia e convulsão são as manifestações que matam — e podem surgir sem os sintomas gastrointestinais de aviso. Intoxicação por teofilina é emergência.",
+ x:"Candidíase e disfonia são de corticoide inalatório; retenção urinária e boca seca, de antimuscarínico; tremor e hipocalemia, de β₂-agonista."},
+
+{id:"f6",t:"m6",q:"Por que a teofilina em dose baixa ainda tem lugar no tratamento da DPOC?",
+ o:["Porque restaura a atividade da HDAC2 e, com isso, a sensibilidade ao corticoide",
+    "Porque é o broncodilatador mais potente disponível",
+    "Porque bloqueia a elastase neutrofílica",
+    "Porque tem efeito antibiótico sobre patógenos respiratórios"],
+ c:0,
+ e:"O estresse oxidativo do cigarro inativa a HDAC2, que é a enzima de que o corticoide depende para desligar genes inflamatórios. A teofilina em dose baixa reativa a HDAC2 e devolve parte da resposta ao corticoide.",
+ x:"Ela não é o broncodilatador mais potente, não inibe elastase (isso é campo da α₁-antitripsina) e não tem efeito antibiótico — quem tem esse papel adjuvante é a azitromicina crônica."},
+
+/* ---------------- MÓDULO 7 ---------------- */
+{id:"g1",t:"m7",q:"O montelucaste atua como:",
+ o:["Antagonista do receptor CysLT₁ dos cisteinil-leucotrienos",
+    "Antagonista do receptor de LTB₄",
+    "Inibidor da 5-lipoxigenase",
+    "Anticorpo monoclonal anti-IL-5"],
+ c:0,
+ e:"Ele bloqueia o receptor CysLT₁, alvo de LTC₄, LTD₄ e LTE₄ — os leucotrienos broncoconstritores.",
+ x:"LTB₄ é quimiotático e tem receptor próprio, não bloqueado pelos lucastes. Inibidor de 5-LOX é a zileutona. Anti-IL-5 é o mepolizumabe."},
+
+{id:"g2",t:"m7",q:"Uma vantagem prática dos antileucotrienos em relação aos corticoides inalatórios é:",
+ o:["São administrados por via oral, o que ajuda em crianças pequenas e em quem tem má técnica inalatória",
+    "São mais eficazes que o corticoide inalatório no controle da asma",
+    "Não têm efeitos adversos relevantes",
+    "Podem substituir o salbutamol na crise aguda"],
+ c:0,
+ e:"A via oral, uma vez ao dia, é a vantagem real — e eles ainda inibem a asma induzida por exercício e reduzem a eosinofilia do escarro.",
+ x:"São <b>menos</b> eficazes que o CI como controlador e que o salbutamol como broncodilatador. E o montelucaste tem alerta de eventos neuropsiquiátricos — longe de ser isento."},
+
+{id:"g3",t:"m7",q:"O alerta de segurança em caixa preta emitido pelo FDA para o montelucaste refere-se a:",
+ o:["Eventos neuropsiquiátricos: agitação, pesadelos, alteração de humor, depressão e ideação suicida",
+    "Hepatotoxicidade fulminante",
+    "Nefrite intersticial aguda",
+    "Arritmias ventriculares"],
+ c:0,
+ e:"O alerta é de 2020 e vale inclusive para crianças. Na prática: perguntar ativamente sobre sono, humor e comportamento, e evitar o uso em rinite leve quando há alternativa.",
+ x:"Hepatotoxicidade foi preocupação maior com o <i>zafirlucaste</i>, mas não é o boxed warning clássico. Nefrite e arritmia não fazem parte do perfil."},
+
+{id:"g4",t:"m7",q:"Por que o AAS e outros AINEs podem desencadear broncoespasmo grave em alguns asmáticos?",
+ o:["Ao inibir a COX, desviam o ácido araquidônico para a via da 5-lipoxigenase, aumentando a produção de cisteinil-leucotrienos",
+    "Porque bloqueiam diretamente os receptores β₂",
+    "Porque induzem a liberação maciça de IgE",
+    "Porque inibem a adenilil ciclase brônquica"],
+ c:0,
+ e:"Com a via da COX fechada, o substrato sobra para a 5-LOX. É a base da doença respiratória exacerbada por AINE (asma + polipose nasal + intolerância ao AAS), onde os antileucotrienos são especialmente úteis.",
+ x:"AINE não é betabloqueador nem mexe em IgE ou adenilil ciclase. Quem bloqueia β₂ e piora asma é o <b>propranolol</b> — outra armadilha comum."},
+
+{id:"g5",t:"m7",q:"Um adolescente tem crises apenas durante o futebol, duas vezes por semana, e é assintomático no resto do tempo. Sobre os antileucotrienos nesse cenário:",
+ o:["São uma opção, pois inibem a asma induzida por exercício, mas a diretriz atual prioriza tratamento contendo corticoide inalatório",
+    "São a única opção possível, já que o corticoide não previne broncoespasmo de exercício",
+    "Estão contraindicados em adolescentes",
+    "Devem ser usados apenas como resgate, minutos antes do exercício"],
+ c:0,
+ e:"Montelucaste inibe a asma de exercício, sim. Mas sintomas duas vezes por semana significam asma não controlada, e a conduta atual é garantir corticoide inalatório — isolado ou dentro do resgate CI-formoterol.",
+ x:"O corticoide inalatório <i>reduz</i> broncoespasmo de exercício ao controlar a inflamação de base. Não há contraindicação por idade. E montelucaste é oral, de uso regular — não funciona como resgate pré-esforço (isso é papel do SABA ou do CI-formoterol)."},
+
+/* ---------------- MÓDULO 8 ---------------- */
+{id:"h1",t:"m8",q:"O omalizumabe é um anticorpo monoclonal humanizado que:",
+ o:["Liga-se à IgE livre e impede sua fixação ao receptor FcεRI dos mastócitos",
+    "Destrói diretamente os eosinófilos circulantes",
+    "Bloqueia o receptor de IL-4",
+    "Inibe a enzima conversora de angiotensina"],
+ c:0,
+ e:"Ele sequestra a IgE livre. Sem IgE fixada ao mastócito, a ligação cruzada pelo alérgeno não acontece e a fase imediata não dispara. É indicado na asma alérgica grave e na rinite alérgica.",
+ x:"Depletar eosinófilo é o benralizumabe. Bloquear IL-4Rα é o dupilumabe. Inibir ECA é captopril — nada a ver."},
+
+{id:"h2",t:"m8",q:"Um paciente com asma grave e eosinófilos séricos persistentemente elevados, sem perfil alérgico definido, é candidato preferencial a:",
+ o:["Mepolizumabe ou benralizumabe (anti-IL-5 / anti-IL-5Rα)",
+    "Omalizumabe","Icatibanto","Roflumilaste"],
+ c:0,
+ e:"Perfil eosinofílico sem componente alérgico claro aponta para bloqueio do eixo IL-5. O omalizumabe depende de doença mediada por IgE.",
+ x:"Icatibanto é para angioedema bradicinínico; roflumilaste é inibidor de PDE-4 usado na DPOC grave."},
+
+{id:"h3",t:"m8",q:"O dupilumabe se diferencia dos demais biológicos da asma porque:",
+ o:["Bloqueia a subunidade IL-4Rα e, com isso, inibe simultaneamente as vias da IL-4 e da IL-13",
+    "É o único administrado por via oral",
+    "Age diretamente sobre o receptor β₂",
+    "É um antagonista de leucotrienos injetável"],
+ c:0,
+ e:"Como IL-4 e IL-13 compartilham a cadeia IL-4Rα, um único bloqueio derruba as duas vias — daí a eficácia também em dermatite atópica e polipose nasal, e o uso na DPOC eosinofílica nas diretrizes recentes.",
+ x:"Todos os biológicos da asma são injetáveis (SC ou IV). E nenhum deles atua em β₂ ou em receptor de leucotrieno."},
+
+{id:"h4",t:"m8",q:"Segundo o Registro Brasileiro de Asma Grave (REBRAG), entre os adultos incluídos:",
+ o:["71% tinham história de internação e apenas cerca de 41% estavam em uso de biológico",
+    "Praticamente todos já estavam em uso de biológico, com remissão universal",
+    "Nenhum paciente havia sido hospitalizado no último ano",
+    "A asma grave no Brasil deixou de gerar carga assistencial relevante"],
+ c:0,
+ e:"O dado brasileiro mostra carga alta: 71% já internados, 31% com mais de duas exacerbações graves no ano, 6% com parada cardiorrespiratória prévia, e menos da metade em biológico — com remissão clínica em cerca de 20% dos tratados.",
+ x:"As demais invertem o achado. O ponto do registro é justamente o contrário: acesso limitado e carga alta de doença."},
+
+/* ---------------- MÓDULO 9 ---------------- */
+{id:"i1",t:"m9",q:"O efeito anti-inflamatório dos glicocorticoides depende principalmente de:",
+ o:["Transrepressão: inibição de NF-κB/AP-1 com recrutamento da HDAC2 e silenciamento de genes de citocinas",
+    "Bloqueio competitivo dos receptores de histamina H₁",
+    "Inibição irreversível da ciclo-oxigenase",
+    "Ativação direta da adenilil ciclase"],
+ c:0,
+ e:"O complexo corticoide-receptor entra no núcleo e desliga a transcrição de genes inflamatórios recrutando a HDAC2 — guarde essa enzima, porque é a chave da corticorresistência na DPOC.",
+ x:"H₁ é anti-histamínico; COX é AINE (o AAS inibe irreversivelmente); adenilil ciclase é a via do β₂."},
+
+{id:"i2",t:"m9",q:"Entre os efeitos dos glicocorticoides nas vias aéreas, o que explica a sinergia com os β₂-agonistas é:",
+ o:["A suprarregulação (aumento da expressão) dos receptores β₂",
+    "A inibição da fosfodiesterase",
+    "O bloqueio do receptor M₃",
+    "A redução da produção de surfactante"],
+ c:0,
+ e:"O corticoide aumenta a expressão de receptores β₂ e restaura a resposta em quem estava taquifilático. Na via inversa, o β₂ facilita a translocação nuclear do receptor de glicocorticoide. Essa dupla mão é a base farmacológica dos dispositivos combinados.",
+ x:"PDE é teofilina; M₃ é antimuscarínico; e reduzir surfactante seria prejudicial — não é efeito do corticoide (o corticoide antenatal, ao contrário, <i>aumenta</i> a produção fetal)."},
+
+{id:"i3",t:"m9",q:"Paciente em uso de fluticasona inalatória queixa-se de rouquidão e apresenta placas esbranquiçadas na orofaringe. A conduta mais adequada é:",
+ o:["Orientar uso de espaçador e enxágue bucal após cada aplicação, além de tratar a candidíase",
+    "Suspender definitivamente o corticoide inalatório",
+    "Trocar por corticoide oral em uso contínuo",
+    "Associar antibiótico sistêmico"],
+ c:0,
+ e:"Candidíase orofaríngea e disfonia são os efeitos adversos locais clássicos, e ambos caem muito com espaçador e enxágue (cuspindo). Suspender o CI seria trocar um problema local e tratável por descontrole da asma.",
+ x:"Corticoide oral contínuo traz supressão adrenal, osteoporose, catarata — desproporcional para uma candidíase. E candidíase é fúngica: antibiótico não resolve."},
+
+{id:"i4",t:"m9",q:"A ciclesonida se associa a menor risco de candidíase orofaríngea porque:",
+ o:["É um pró-fármaco ativado por esterases no pulmão, ficando pouco ativa na orofaringe",
+    "É administrada por via oral","Não atinge o receptor glicocorticoide","Tem meia-vida de poucos minutos"],
+ c:0,
+ e:"Ela chega inativa à boca e só é convertida na forma ativa no tecido pulmonar. Menos corticoide ativo na orofaringe, menos candidíase — e ainda com posologia de uma vez ao dia.",
+ x:"Ela é inalatória, sim atinge o receptor glicocorticoide (depois de ativada) e não tem meia-vida ultracurta."},
+
+{id:"i5",t:"m9",q:"Os glicocorticoides orais (prednisolona) e a hidrocortisona IV estão reservados para:",
+ o:["Doença grave ou exacerbações agudas","Todo paciente asmático, desde o diagnóstico",
+    "Substituir o corticoide inalatório em casos leves","Uso profilático antes de exercício"],
+ c:0,
+ e:"Curso curto na exacerbação, ou uso contínuo apenas na asma grave refratária (passo 5). A regra é a menor dose pelo menor tempo, dado o perfil de efeitos sistêmicos.",
+ x:"Corticoide sistêmico de rotina ou em caso leve é sobretratamento com dano real. E profilaxia de asma de exercício se faz com SABA ou CI-formoterol antes do esforço, não com corticoide oral."},
+
+{id:"i6",t:"m9",q:"Qual dos efeitos abaixo é característico do corticoide <b>sistêmico</b> prolongado, e não do inalatório em dose usual?",
+ o:["Supressão do eixo hipotálamo-hipófise-adrenal com risco de insuficiência adrenal na retirada abrupta",
+    "Disfonia","Candidíase orofaríngea","Tosse irritativa logo após a inalação"],
+ c:0,
+ e:"Supressão adrenal, Cushing, osteoporose, catarata e hiperglicemia são o preço do uso sistêmico prolongado — e obrigam retirada gradual. Os outros três são locais, do inalatório.",
+ x:"Disfonia, candidíase e tosse pós-inalação são justamente os efeitos que o espaçador e o enxágue previnem."},
+
+/* ---------------- MÓDULO 10 ---------------- */
+{id:"j1",t:"m10",q:"No esquema escalonado clássico apresentado na aula (Rang &amp; Dale), o passo 2 corresponde a:",
+ o:["Adicionar corticosteroide inalatório","Adicionar teofilina ou montelucaste",
+    "Adicionar broncodilatador de longa duração","Iniciar corticoide oral regular"],
+ c:0,
+ e:"Passo 1 salbutamol; passo 2 acrescenta CI; passo 3 acrescenta LABA; passo 4 teofilina ou montelucaste; passo 5 corticoide oral regular.",
+ x:"Teofilina/montelucaste é passo 4; LABA é passo 3; corticoide oral é passo 5."},
+
+{id:"j2",t:"m10",q:"Qual é a mudança conceitual mais importante das diretrizes atuais (GINA/SBPT) em relação ao esquema clássico?",
+ o:["Adultos e adolescentes não devem mais ser tratados com SABA isolado — todos precisam de tratamento contendo corticoide inalatório",
+    "O corticoide inalatório deixou de ser recomendado na asma leve",
+    "A teofilina passou a ser primeira linha",
+    "O LABA isolado passou a ser permitido no passo 1"],
+ c:0,
+ e:"O motivo é duro: pacientes com asma 'leve' morriam em exacerbações usando só broncodilatador. A resposta foi garantir corticoide em todos, seja de manutenção, seja dentro do resgate (CI-formoterol).",
+ x:"As outras três invertem exatamente o que aconteceu — o CI ganhou espaço, a teofilina perdeu, e LABA isolado segue proibido na asma."},
+
+{id:"j3",t:"m10",q:"O esquema MART (terapia de manutenção e resgate) consiste em:",
+ o:["Usar o mesmo inalador de CI-formoterol tanto como manutenção quanto como medicação de alívio",
+    "Alternar corticoide oral e inalatório em dias consecutivos",
+    "Usar salmeterol como resgate e budesonida na manutenção",
+    "Nebulizar salbutamol de horário fixo e usar CI apenas nas crises"],
+ c:0,
+ e:"A beleza do MART é que piorar significa automaticamente receber mais corticoide, porque ele vem no mesmo puff do broncodilatador. O tratamento se autoajusta à atividade da doença.",
+ x:"Salmeterol não serve de resgate (início lento). As outras duas descrevem esquemas que ninguém usa — e a última é justamente o erro que a diretriz quer eliminar."},
+
+{id:"j4",t:"m10",q:"No Trilho 1 (preferencial) do GINA, a medicação de resgate é:",
+ o:["CI-formoterol em dose baixa, conforme a necessidade","Salbutamol isolado",
+    "Salmeterol isolado","Montelucaste oral"],
+ c:0,
+ e:"É o chamado resgate anti-inflamatório. No Trilho 2, alternativo, o resgate é SABA, mas obrigatoriamente com corticoide inalatório diário associado.",
+ x:"SABA isolado é justamente o que a diretriz abandonou; salmeterol nunca é resgate; e montelucaste é controlador oral de uso regular."},
+
+{id:"j5",t:"m10",q:"Antes de aumentar o passo terapêutico de um paciente com asma aparentemente não controlada, o primeiro passo é:",
+ o:["Revisar técnica inalatória, adesão, comorbidades e exposições ambientais/ocupacionais",
+    "Solicitar tomografia de tórax","Iniciar imediatamente um biológico",
+    "Trocar todos os fármacos por outra classe"],
+ c:0,
+ e:"Má técnica inalatória é a causa número 1 de falha terapêutica aparente. Depois vêm adesão, rinite/DRGE/obesidade/apneia, tabagismo e exposições — inclusive ocupacionais, que são subdiagnosticadas.",
+ x:"Escalonar ou partir para biológico antes de checar o básico é caro, arriscado e costuma não resolver. Tomografia não é o exame de rotina aqui."},
+
+{id:"j6",t:"m10",q:"Uma questão cita expressamente 'segundo as recomendações da Sociedade Brasileira de Pneumologia e Tisiologia' e pergunta a conduta inicial em um adulto com asma leve. A melhor resposta é:",
+ o:["Tratamento contendo corticoide inalatório desde o início, preferencialmente CI-formoterol conforme necessidade",
+    "Salbutamol isolado conforme necessidade","Teofilina oral de manutenção",
+    "Corticoide oral em dias alternados"],
+ c:0,
+ e:"As recomendações brasileiras acompanham a lógica do GINA adaptada ao país. Se o enunciado invoca diretriz, a resposta é corticoide desde o começo.",
+ x:"Salbutamol isolado só seria resposta se o enunciado pedisse explicitamente o esquema clássico do livro-texto. Teofilina e corticoide oral em asma leve são condutas ultrapassadas e desproporcionais."},
+
+/* ---------------- MÓDULO 11 ---------------- */
+{id:"k1",t:"m11",q:"Durante uma crise asmática grave, a gasometria mostra PaCO₂ de 42 mmHg (normal). A interpretação correta é:",
+ o:["Sinal de alarme: indica fadiga da musculatura respiratória, pois o esperado na crise é hipocapnia",
+    "Sinal de melhora clínica, pois o CO₂ normalizou",
+    "Achado irrelevante","Indica hiperventilação psicogênica"],
+ c:0,
+ e:"O paciente em crise hiperventila e deveria estar hipocápnico. Um CO₂ 'normal' significa que ele já não consegue manter a ventilação — está se esgotando. É indicação de vigilância estreita e possível suporte ventilatório.",
+ x:"Achar que normalizou é o erro que mata. Hiperventilação psicogênica daria hipocapnia, não normocapnia com dispneia grave."},
+
+{id:"k2",t:"m11",q:"Em um paciente com dispneia intensa, a ausência de sibilos à ausculta (tórax silencioso) significa:",
+ o:["Iminência de parada respiratória — não há fluxo aéreo suficiente para gerar sibilo",
+    "Resolução do broncoespasmo","Erro de técnica do examinador","Presença de derrame pleural"],
+ c:0,
+ e:"Sibilo precisa de fluxo. Quando a obstrução é tão grave que o fluxo quase cessa, o tórax silencia. Somado a sonolência, bradicardia e cianose, é quadro de emergência máxima.",
+ x:"Se tivesse melhorado, o paciente estaria menos dispneico, falando frases completas e com SpO₂ subindo. Derrame dá abolição localizada do murmúrio, com macicez — outro quadro."},
+
+{id:"k3",t:"m11",q:"Qual é o alvo de saturação recomendado na oxigenoterapia da crise asmática em adultos?",
+ o:["SpO₂ entre 93% e 95%","SpO₂ acima de 99%","SpO₂ entre 85% e 88%","Não se usa oxigênio na crise asmática"],
+ c:0,
+ e:"Oxigenoterapia controlada: 93–95% em adultos e 94–98% em crianças de 6–11 anos. O slide traz 'alta concentração (≥60%)', a conduta clássica — mas a prática atual evita hiperóxia, que também piora desfecho.",
+ x:"88–92% é o alvo da <b>DPOC</b> exacerbada, por causa do risco de retenção de CO₂ — não confunda os dois. E oxigênio é parte obrigatória do tratamento da crise grave."},
+
+{id:"k4",t:"m11",q:"Qual fármaco é indicado por via intravenosa na crise asmática grave sem resposta ao tratamento inicial, por relaxar o músculo liso via bloqueio de canais de cálcio?",
+ o:["Sulfato de magnésio","Furosemida","Adrenalina em bolus","Cloreto de potássio"],
+ c:0,
+ e:"Sulfato de magnésio IV (cerca de 2 g em 20 min no adulto) é a medida adicional nas crises graves refratárias, antes de escalar para ventilação.",
+ x:"Furosemida não tem papel na asma. Adrenalina IV em bolus é arritmogênica e reservada a cenários muito específicos (na anafilaxia a via é IM). Potássio se repõe se estiver baixo, mas não é broncodilatador."},
+
+{id:"k5",t:"m11",q:"Sobre o corticoide sistêmico na crise asmática:",
+ o:["Deve ser administrado precocemente, idealmente na primeira hora, mesmo que o efeito clínico leve horas",
+    "Só deve ser usado se o paciente não melhorar em 48 horas",
+    "É contraindicado em crise aguda","Deve ser usado apenas por via inalatória na crise"],
+ c:0,
+ e:"Ele não alivia agora — ele impede a fase tardia e a recidiva. Por isso se dá cedo: prednisolona/prednisona 40–50 mg VO no adulto, ou hidrocortisona IV se não tolera a via oral.",
+ x:"Esperar 48 h joga fora a janela. Não há contraindicação — ao contrário, é conduta obrigatória. E o CI não substitui o sistêmico na crise."},
+
+{id:"k6",t:"m11",q:"Qual conduta abaixo é <b>errada</b> no manejo da crise asmática grave?",
+ o:["Administrar sedativo para aliviar a ansiedade do paciente",
+    "Associar ipratrópio nebulizado ao salbutamol","Monitorar PFE e gasometria arterial",
+    "Prescrever corticoide oral por 5 a 7 dias na alta"],
+ c:0,
+ e:"Sedativo deprime o drive respiratório num paciente que já está no limite da fadiga muscular. A 'ansiedade' aqui é fome de ar — trate a obstrução, não o sintoma.",
+ x:"As outras três são conduta correta: a combinação SABA+SAMA reduz internação, a monitorização objetiva evita subestimar a gravidade, e o corticoide na alta previne recidiva."},
+
+/* ---------------- MÓDULO 12 ---------------- */
+{id:"l1",t:"m12",q:"O tratamento de primeira linha da anafilaxia é:",
+ o:["Adrenalina intramuscular no vasto lateral da coxa","Hidrocortisona intravenosa",
+    "Clorfeniramina intramuscular","Salbutamol nebulizado"],
+ c:0,
+ e:"Adrenalina IM, na coxa, imediatamente. Atraso na adrenalina é o principal preditor de óbito na anafilaxia. Todo o resto é adjuvante.",
+ x:"Corticoide leva horas e serve para tentar reduzir a reação bifásica; o anti-H1 só melhora urticária e prurido; o salbutamol ajuda no broncoespasmo, mas não trata hipotensão nem edema de glote."},
+
+{id:"l2",t:"m12",q:"A dose e a apresentação corretas da adrenalina na anafilaxia em adulto são:",
+ o:["Solução 1:1000 (1 mg/mL), 0,01 mg/kg, máximo 0,5 mg, repetível a cada 5–15 min",
+    "Solução 1:10.000, 1 mg em bolus intravenoso","Solução 1:1000, 5 mg por via subcutânea em dose única",
+    "Solução 1:100.000 por via inalatória"],
+ c:0,
+ e:"1:1000 IM, 0,01 mg/kg (máx. 0,5 mg no adulto, 0,3 mg na criança), no vasto lateral, repetindo se necessário.",
+ x:"A solução 1:10.000 IV em bolus é do protocolo de <b>parada cardíaca</b>, não de anafilaxia com pulso — é arritmogênica. SC tem absorção errática. E 5 mg é dose absurda."},
+
+{id:"l3",t:"m12",q:"A adrenalina resolve simultaneamente hipotensão, broncoespasmo e edema de mucosa porque atua em:",
+ o:["Receptores α₁ (vasoconstrição), β₁ (inotropismo/cronotropismo) e β₂ (broncodilatação e estabilização do mastócito)",
+    "Apenas receptores β₂","Receptores muscarínicos M₃","Receptores histaminérgicos H₁ e H₂"],
+ c:0,
+ e:"É o fármaco certo justamente por ser inespecífico: α₁ sobe a pressão e reduz o edema, β₁ sustenta o débito, β₂ abre o brônquio e freia a degranulação. Um único fármaco cobre toda a fisiopatologia.",
+ x:"Se fosse só β₂ não trataria a hipotensão. A adrenalina não age em muscarínicos, e bloquear H₁/H₂ é papel dos anti-histamínicos, que são adjuvantes."},
+
+{id:"l4",t:"m12",q:"Paciente com angioedema hereditário por deficiência de inibidor de C1 apresenta edema de face e língua, sem urticária e sem prurido. O tratamento específico citado na aula é:",
+ o:["Icatibanto subcutâneo, antagonista do receptor B₂ de bradicinina",
+    "Hidrocortisona intravenosa em dose alta","Anti-histamínico H₁ de segunda geração","Omalizumabe"],
+ c:0,
+ e:"O mediador é a bradicinina, não a histamina — daí a ausência de urticária e prurido. Corticoide e anti-histamínico não funcionam aqui; o alvo é a bradicinina (icatibanto) ou a reposição do inibidor de C1.",
+ x:"Corticoide e anti-H1 são exatamente a armadilha desta questão. Omalizumabe é anti-IgE, usado em asma alérgica e urticária crônica espontânea, não no angioedema hereditário."},
+
+{id:"l5",t:"m12",q:"O angioedema induzido por inibidores da ECA ocorre porque:",
+ o:["A ECA degrada bradicinina; ao inibi-la, a bradicinina se acumula e aumenta a permeabilidade vascular",
+    "O IECA induz produção de IgE específica","O IECA causa degranulação direta de mastócitos",
+    "O IECA inibe a síntese de inibidor de C1"],
+ c:0,
+ e:"Mesmo mecanismo bradicinínico que explica a tosse do IECA. Conduta: suspender o IECA definitivamente e nunca reintroduzir — pode recorrer meses após o início do fármaco.",
+ x:"Não é reação IgE-mediada nem degranulação direta — por isso adrenalina, corticoide e anti-histamínico funcionam mal nesse tipo de angioedema."},
+
+/* ---------------- MÓDULO 13 ---------------- */
+{id:"m01",t:"m13",q:"O perfil celular da inflamação na DPOC é caracterizado por:",
+ o:["Macrófagos, neutrófilos e linfócitos T CD8⁺","Eosinófilos, mastócitos e linfócitos Th2",
+    "Plasmócitos e linfócitos B","Basófilos e células NK"],
+ c:0,
+ e:"Esse é o divisor de águas em relação à asma (eosinófilo/Th2/CD4⁺) e explica por que o corticoide funciona tão bem numa e tão mal na outra.",
+ x:"O padrão eosinofílico/Th2 é da asma. Plasmócitos, basófilos e NK não caracterizam nenhuma das duas."},
+
+{id:"m02",t:"m13",q:"Qual é a única intervenção que comprovadamente retarda a progressão da DPOC?",
+ o:["Cessação do tabagismo","Corticoide inalatório em dose alta","Teofilina oral contínua","Broncodilatador de longa duração"],
+ c:0,
+ e:"Parar de fumar é o que muda a inclinação da curva de queda do VEF₁. Broncodilatadores aliviam sintoma e reduzem exacerbação, mas não alteram a progressão da destruição pulmonar.",
+ x:"Nenhum fármaco inalatório isolado freia a progressão. Corticoide inalatório na DPOC tem papel restrito e traz risco de pneumonia."},
+
+{id:"m03",t:"m13",q:"A resistência aos glicocorticoides na DPOC é explicada por:",
+ o:["Redução da atividade da HDAC2 pelo estresse oxidativo do tabagismo",
+    "Ausência de receptores de glicocorticoide no pulmão do tabagista",
+    "Metabolismo hepático acelerado do corticoide","Destruição do corticoide pela elastase neutrofílica"],
+ c:0,
+ e:"O receptor existe e o corticoide liga nele — o que falta é a HDAC2, necessária para desacetilar histonas e silenciar os genes inflamatórios. Sem ela, o freio não engata. Teofilina em dose baixa restaura parcialmente essa atividade.",
+ x:"Os receptores estão lá; não há metabolismo acelerado específico; e a elastase não degrada corticoide."},
+
+{id:"m04",t:"m13",q:"O roflumilaste, indicado como adjunto na DPOC grave, é:",
+ o:["Um inibidor seletivo da fosfodiesterase tipo 4 (PDE-4)","Um antagonista muscarínico de longa duração",
+    "Um anticorpo monoclonal anti-IgE","Um agonista β₂ ultralongo"],
+ c:0,
+ e:"Inibidor de PDE-4, oral, indicado na DPOC grave com bronquite crônica e exacerbações frequentes. Efeitos adversos que limitam o uso: diarreia, náusea, perda de peso e alterações psiquiátricas.",
+ x:"LAMA é tiotrópio; anti-IgE é omalizumabe; β₂ ultralongo é vilanterol/indacaterol."},
+
+{id:"m05",t:"m13",q:"Qual paciente com DPOC preenche critério para oxigenoterapia domiciliar prolongada?",
+ o:["PaO₂ de 53 mmHg em repouso, em ar ambiente, com a doença estável",
+    "PaO₂ de 75 mmHg com dispneia aos grandes esforços",
+    "SpO₂ de 93% em repouso","Qualquer paciente com VEF₁ abaixo de 50%"],
+ c:0,
+ e:"O critério é PaO₂ ≤ 55 mmHg ou SpO₂ ≤ 88% em repouso; ou PaO₂ de 56–59 mmHg com cor pulmonale, hipertensão pulmonar ou policitemia. O uso precisa ser ≥ 15 h/dia, incluindo o sono, para gerar ganho de sobrevida.",
+ x:"PaO₂ de 75 mmHg e SpO₂ de 93% estão acima do limiar — oxigênio ali não traz benefício de sobrevida. E o critério é gasométrico, não espirométrico: VEF₁ isolado não indica oxigênio."},
+
+{id:"m06",t:"m13",q:"A destruição alveolar do enfisema resulta principalmente de:",
+ o:["Desequilíbrio entre proteases e antiproteases, com destruição das fibras de elastina",
+    "Deposição de colágeno nos septos alveolares","Infecção crônica por micobactérias",
+    "Vasoconstrição hipóxica das arteríolas pulmonares"],
+ c:0,
+ e:"Elastase neutrofílica e metaloproteinases em excesso, ou antiprotease insuficiente, destroem a elastina. A deficiência de α₁-antitripsina é a forma genética desse mesmo desequilíbrio — pense nela em enfisema de base em paciente jovem ou pouco tabagista.",
+ x:"Deposição de colágeno é fibrose, mecanismo das pequenas vias aéreas, não da destruição alveolar. Vasoconstrição hipóxica leva a cor pulmonale, que é consequência, não causa."},
+
+{id:"m07",t:"m13",q:"Na exacerbação de DPOC com retenção de CO₂, o alvo de saturação durante a oxigenoterapia é:",
+ o:["88% a 92%","97% a 100%","Acima de 95%","Não há alvo definido"],
+ c:0,
+ e:"Oxigênio em excesso na DPOC retentora piora a hipercapnia (por alteração da relação V/Q e efeito Haldane). Titule para 88–92%.",
+ x:"Alvos altos como 97–100% são justamente o erro. E na asma o alvo é 93–95% — sempre confira de qual doença fala o enunciado."},
+
+{id:"m08",t:"m13",q:"Na exacerbação de DPOC, o antibiótico está indicado principalmente quando:",
+ o:["Há aumento da purulência do escarro associado a aumento de volume e/ou de dispneia, ou necessidade de ventilação",
+    "Sempre, em toda exacerbação","Apenas se houver febre acima de 39 °C",
+    "Apenas se a radiografia mostrar consolidação"],
+ c:0,
+ e:"Purulência é o melhor marcador clínico de causa bacteriana. Estratégias guiadas por procalcitonina reduzem prescrição de antibiótico sem piorar desfecho, reforçando que 'toda exacerbação leva antibiótico' é excesso.",
+ x:"Nem toda exacerbação é bacteriana (muitas são virais ou por poluentes). Febre alta não é critério obrigatório, e consolidação já configura pneumonia, que é outro diagnóstico."},
+
+/* ---------------- MÓDULO 14 ---------------- */
+{id:"n1",t:"m14",q:"O principal diferencial clínico entre asma e DPOC é:",
+ o:["A reversibilidade da obstrução ao fluxo aéreo","A presença de tosse",
+    "A idade do paciente","A presença de dispneia"],
+ c:0,
+ e:"Reversível = asma; persistente e progressiva = DPOC. Tosse, dispneia e idade ajudam, mas nenhum desses isoladamente separa as duas doenças.",
+ x:"Tosse e dispneia existem nas duas. Idade orienta, mas há asma de início tardio e DPOC precoce (pense em α₁-antitripsina)."},
+
+{id:"n2",t:"m14",q:"O critério espirométrico de obstrução persistente na DPOC é:",
+ o:["VEF₁/CVF menor que 0,70 após broncodilatador","VEF₁ menor que 80% do previsto antes do broncodilatador",
+    "CVF menor que 70% do previsto","Relação VEF₁/CVF maior que 0,80"],
+ c:0,
+ e:"A relação abaixo de 0,70 <b>pós-broncodilatador</b> é o que define obstrução que não reverte. O 'pós-broncodilatador' é a parte que a prova gosta de esconder.",
+ x:"VEF₁ isolado gradua a gravidade, mas não define obstrução. CVF reduzida com relação preservada sugere padrão restritivo. Relação alta é o oposto de obstrução."},
+
+{id:"n3",t:"m14",q:"Sobre a coexistência de asma e DPOC no mesmo paciente:",
+ o:["É possível, e por isso sempre vale a tentativa terapêutica com glicocorticoide na DPOC",
+    "É impossível, pois os mecanismos são mutuamente excludentes",
+    "Ocorre apenas em não tabagistas","Contraindica o uso de broncodilatadores de longa duração"],
+ c:0,
+ e:"A sobreposição existe. Se houver componente asmático ou eosinofílico, o corticoide responde — daí a recomendação de testar. O que não se faz é manter CI indefinidamente em quem não respondeu, pelo risco de pneumonia.",
+ x:"Os mecanismos não se excluem. Tabagismo é comum na sobreposição. E broncodilatador de longa duração é peça central nas duas doenças."},
+
+{id:"n4",t:"m14",q:"Um paciente de 62 anos, ex-tabagista, tem VEF₁/CVF de 0,62 pós-broncodilatador, eosinófilos sanguíneos de 380/µL e duas exacerbações no último ano em uso de LABA+LAMA. A conduta mais apropriada é:",
+ o:["Adicionar corticoide inalatório (escalonar para terapia tripla)","Suspender o LAMA",
+    "Iniciar teofilina em dose alta","Iniciar antibiótico contínuo de imediato"],
+ c:0,
+ e:"Eosinofilia relevante somada a exacerbações apesar da dupla broncodilatação é justamente o cenário em que o corticoide inalatório agrega — a terapia tripla reduz exacerbações e, em subgrupos, mortalidade.",
+ x:"Retirar LAMA piora o paciente. Teofilina em dose alta é perigosa e não é a escolha aqui. Azitromicina crônica é opção, mas depois de otimizar a terapia inalatória."},
+
+/* ---------------- MÓDULO 15 ---------------- */
+{id:"o1",t:"m15",q:"A função do surfactante pulmonar é:",
+ o:["Reduzir a tensão superficial alveolar, evitando o colapso dos alvéolos ao fim da expiração",
+    "Aumentar a tensão superficial para manter o alvéolo aberto",
+    "Transportar oxigênio através da membrana alvéolo-capilar",
+    "Neutralizar a elastase neutrofílica"],
+ c:0,
+ e:"Pela Lei de Laplace (P = 2T/r), reduzir T impede que os alvéolos menores colabem dentro dos maiores. O surfactante é produzido pelos pneumócitos tipo II.",
+ x:"Aumentar a tensão faria o oposto. Transporte de O₂ é difusão passiva pela membrana. Neutralizar elastase é papel da α₁-antitripsina."},
+
+{id:"o2",t:"m15",q:"Beractanto e poractanto alfa são administrados:",
+ o:["Por cânula endotraqueal, diretamente na traqueia do recém-nascido",
+    "Por via intravenosa","Por via oral","Por nebulização em máscara facial"],
+ c:0,
+ e:"Instilação endotraqueal direta, na síndrome da angústia respiratória do prematuro. Prevenção: corticoide antenatal à gestante em risco de parto prematuro.",
+ x:"O surfactante precisa chegar à superfície alveolar — nenhuma via sistêmica ou oral entrega isso, e a nebulização convencional não é eficaz para essa finalidade."},
+
+{id:"o3",t:"m15",q:"Paciente hipertenso em uso de enalapril há 2 meses queixa-se de tosse seca persistente, sem dispneia e com exame normal. A conduta é:",
+ o:["Substituir o enalapril por um antagonista do receptor de angiotensina, como a losartana",
+    "Prescrever codeína para suprimir a tosse","Associar corticoide inalatório",
+    "Solicitar tomografia de tórax antes de qualquer mudança"],
+ c:0,
+ e:"A tosse do IECA vem do acúmulo de bradicinina e substância P na via aérea. Os BRAs não inibem a ECA e por isso não causam esse efeito — a tosse some em dias a semanas.",
+ x:"Antitussígeno mascara um efeito adverso evitável, com risco de sedação e constipação. Corticoide inalatório não trata tosse bradicinínica. Investigar com imagem antes de retirar o fármaco suspeito é inverter a ordem."},
+
+{id:"o4",t:"m15",q:"Os antitussígenos estão indicados principalmente em:",
+ o:["Tosse seca, irritativa e dolorosa, como a do carcinoma brônquico",
+    "Toda tosse produtiva com expectoração abundante","Exacerbação de DPOC com escarro purulento",
+    "Crise asmática aguda"],
+ c:0,
+ e:"A tosse é reflexo protetor: suprimi-la em quadro produtivo retém secreção e favorece infecção. O antitussígeno serve quando a tosse não tem função útil e traz sofrimento.",
+ x:"Nos outros três cenários a tosse está limpando a via aérea — suprimi-la piora o paciente."},
+
+{id:"o5",t:"m15",q:"A medida que mais reduz a incidência da síndrome da angústia respiratória do prematuro é:",
+ o:["Corticoide antenatal (betametasona) à gestante em risco de parto prematuro",
+    "Surfactante profilático em todos os recém-nascidos","Oxigênio em alta concentração ao nascimento",
+    "Antibiótico profilático no pré-natal"],
+ c:0,
+ e:"O corticoide antenatal acelera a maturação pulmonar fetal e a produção endógena de surfactante. O surfactante exógeno trata quem já nasceu com a doença — o corticoide previne que ela ocorra.",
+ x:"Surfactante em todos é excessivo e invasivo. Oxigênio em alta concentração no prematuro traz risco de retinopatia e lesão pulmonar. Antibiótico não previne a doença da membrana hialina."},
+
+/* ---------------- SIMULADO ---------------- */
+{id:"s1",t:"sim",q:"Um asmático de 24 anos usa apenas salbutamol, cerca de 4 vezes por semana, há dois anos, e nunca teve internação. Do ponto de vista das diretrizes atuais, o maior risco desse esquema é:",
+ o:["Exacerbação grave e morte, porque a inflamação segue não tratada apesar do alívio sintomático",
+    "Taquifilaxia ao salbutamol, que é o único desfecho relevante",
+    "Dependência física ao β₂-agonista","Nenhum risco, desde que a espirometria esteja normal"],
+ c:0,
+ e:"Esse foi exatamente o padrão associado a mortes por asma em pacientes rotulados como 'leves'. Por isso a diretriz aboliu o SABA isolado em adultos e adolescentes.",
+ x:"Taquifilaxia existe, mas não é o desfecho que importa. Não há dependência física. E espirometria normal entre crises é comum na asma — não exclui risco."},
+
+{id:"s2",t:"sim",q:"Qual combinação fármaco–mecanismo está <b>incorreta</b>?",
+ o:["Montelucaste — antagonista do receptor de LTB₄","Tiotrópio — antagonista muscarínico de longa duração",
+    "Omalizumabe — anticorpo monoclonal anti-IgE","Roflumilaste — inibidor da fosfodiesterase tipo 4"],
+ c:0,
+ e:"O montelucaste é antagonista de <b>CysLT₁</b>, receptor dos cisteinil-leucotrienos. O LTB₄ é quimiotático e tem receptor próprio, que não é alvo dos lucastes.",
+ x:"As outras três estão corretas e valem para revisão: LAMA, anti-IgE e inibidor de PDE-4, respectivamente."},
+
+{id:"s3",t:"sim",q:"Paciente asmático hipertenso chega ao PS com crise após iniciar um novo anti-hipertensivo. Qual classe pode ter desencadeado o quadro?",
+ o:["Betabloqueador não seletivo, como o propranolol","Bloqueador de canal de cálcio",
+    "Diurético tiazídico","Antagonista do receptor de angiotensina"],
+ c:0,
+ e:"O propranolol bloqueia β₂ brônquico e pode desencadear broncoespasmo grave em asmático. Quando o betabloqueio é imprescindível, prefere-se um cardiosseletivo, com cautela.",
+ x:"Bloqueador de cálcio e tiazídico não causam broncoespasmo. BRA é justamente o substituto seguro do IECA em quem tem tosse — não desencadeia crise."},
+
+{id:"s4",t:"sim",q:"Sobre o uso de corticoide inalatório na DPOC, a afirmativa correta é:",
+ o:["Tem benefício em subgrupos selecionados, sobretudo com eosinofilia e exacerbações, mas aumenta o risco de pneumonia",
+    "É o pilar do tratamento, como na asma","Está formalmente contraindicado em qualquer paciente com DPOC",
+    "Substitui a necessidade de broncodilatador de longa duração"],
+ c:0,
+ e:"Na DPOC o corticoide é decisão de custo-benefício, guiada por eosinófilos e história de exacerbações — bem diferente da asma, onde ele é obrigatório.",
+ x:"Pilar na DPOC é broncodilatador (LABA+LAMA) e cessação do tabagismo. Não é contraindicação absoluta, e jamais substitui o broncodilatador."},
+
+{id:"s5",t:"sim",q:"Criança de 5 anos com anafilaxia por amendoim, pesando 20 kg. A dose de adrenalina IM é:",
+ o:["0,2 mg da solução 1:1000","2 mg da solução 1:1000","0,02 mg da solução 1:10.000","1 mg da solução 1:10.000 por via intravenosa"],
+ c:0,
+ e:"0,01 mg/kg × 20 kg = 0,2 mg, na solução 1:1000, IM no vasto lateral. O teto pediátrico é 0,3 mg.",
+ x:"2 mg é dez vezes a dose. A solução 1:10.000 IV é protocolo de parada cardíaca, não de anafilaxia com pulso."},
+
+{id:"s6",t:"sim",q:"Qual achado aponta para <b>asma</b>, e não para DPOC?",
+ o:["Sintomas variáveis que pioram à noite e melhoram com broncodilatador",
+    "Tosse matinal crônica produtiva há 15 anos em tabagista","Enfisema na tomografia de tórax",
+    "Relação VEF₁/CVF de 0,55 sem resposta ao broncodilatador"],
+ c:0,
+ e:"Variabilidade e reversibilidade são a assinatura da asma. Piora noturna/madrugada é um marcador clássico.",
+ x:"Os outros três descrevem DPOC: tabagismo com tosse crônica, destruição alveolar e obstrução fixa."},
+
+{id:"s7",t:"sim",q:"Um paciente com DPOC em uso de teofilina é internado e recebe claritromicina para pneumonia. O risco imediato é:",
+ o:["Intoxicação por teofilina, com náusea, arritmia e convulsão",
+    "Perda de eficácia da teofilina por indução enzimática","Nefrotoxicidade aditiva",
+    "Síndrome serotoninérgica"],
+ c:0,
+ e:"Macrolídeos (claritromicina, eritromicina) inibem o CYP450 e elevam o nível de teofilina, que já tem janela estreita. Mesmo raciocínio do ciprofloxacino.",
+ x:"Indução seria o oposto (e vem do tabagismo, rifampicina, fenitoína). Não há nefrotoxicidade aditiva nem risco serotoninérgico nessa combinação."},
+
+{id:"s8",t:"sim",q:"Qual afirmação sobre a fase tardia da asma é <b>falsa</b>?",
+ o:["É revertida prontamente por agonistas β₂ de curta ação","Ocorre 4 a 8 horas após a exposição ao alérgeno",
+    "Envolve linfócitos Th2 e eosinófilos ativados","É inibida pelos glicocorticoides"],
+ c:0,
+ e:"O β₂ reverte a fase <b>imediata</b> (broncoespasmo). A fase tardia é inflamatória e só é controlada por glicocorticoide.",
+ x:"As outras três são verdadeiras e resumem a fase tardia: tempo, células e classe farmacológica eficaz."},
+
+{id:"s9",t:"sim",q:"Um homem de 70 anos com DPOC grave, PaO₂ de 57 mmHg e hematócrito de 58% com cor pulmonale. Sobre a oxigenoterapia domiciliar:",
+ o:["Está indicada, pois PaO₂ entre 56 e 59 mmHg com policitemia ou cor pulmonale preenche critério",
+    "Não está indicada, pois a PaO₂ é maior que 55 mmHg","Está indicada apenas durante o sono",
+    "Está contraindicada pelo risco de retenção de CO₂"],
+ c:0,
+ e:"A faixa 56–59 mmHg entra quando há repercussão: cor pulmonale, hipertensão pulmonar ou policitemia (Ht > 55%). E o uso precisa ser ≥ 15 h/dia para dar ganho de sobrevida.",
+ x:"O critério de 55 mmHg não é o único. Uso só noturno não atinge o limiar de benefício. E o risco de hipercapnia se maneja titulando o fluxo, não negando oxigênio a quem precisa."},
+
+{id:"s10",t:"sim",q:"Qual fármaco atua aumentando o AMPc intracelular por um mecanismo <b>diferente</b> do dos β₂-agonistas?",
+ o:["Teofilina, que inibe a degradação do AMPc pelas fosfodiesterases",
+    "Ipratrópio","Montelucaste","Budesonida"],
+ c:0,
+ e:"O β₂ aumenta a <i>produção</i> de AMPc (via adenilil ciclase); a teofilina reduz a <i>degradação</i> (via PDE). Chegam ao mesmo lugar por caminhos opostos — daí o efeito aditivo.",
+ x:"Ipratrópio bloqueia M₃, montelucaste bloqueia CysLT₁ e budesonida age na transcrição gênica — nenhum mexe diretamente no AMPc."},
+
+{id:"s11",t:"sim",q:"Sobre a técnica inalatória e os espaçadores, é correto afirmar:",
+ o:["O espaçador aumenta a fração que chega ao pulmão e reduz o depósito orofaríngeo, diminuindo candidíase e disfonia",
+    "O espaçador serve apenas para crianças","O espaçador reduz a eficácia do fármaco por retê-lo nas paredes",
+    "Com espaçador não é necessário enxaguar a boca nem em doses altas"],
+ c:0,
+ e:"Espaçador é das intervenções de maior custo-benefício em toda a aula: melhora a entrega pulmonar, reduz efeito local e compensa má coordenação — em qualquer idade.",
+ x:"Adulto também se beneficia, e muito. Alguma retenção nas paredes existe, mas o balanço é francamente favorável. E enxaguar a boca continua sendo boa prática."},
+
+{id:"s12",t:"sim",q:"Qual conjunto de intervenções comprovadamente aumenta a <b>sobrevida</b> na DPOC?",
+ o:["Cessação do tabagismo e oxigenoterapia domiciliar no paciente hipoxêmico",
+    "Corticoide inalatório isolado e antitussígeno","Teofilina oral e mucolítico",
+    "Broncodilatador de curta ação em horário fixo"],
+ c:0,
+ e:"Essas são as duas medidas clássicas de impacto em mortalidade, às quais se somam a vacinação e, em subgrupos selecionados, a terapia tripla inalatória e a cirurgia redutora de volume.",
+ x:"As demais melhoram sintoma na melhor das hipóteses. Antitussígeno em DPOC com secreção é inclusive prejudicial."}
+];
+
+var CASOS = [
+{cenario:"Ambulatório de pediatria", titulo:"Bombinha azul quase toda semana",
+ vinheta:"Menino de 9 anos, atópico, com rinite alérgica. A mãe relata que ele usa salbutamol <b>3 a 4 vezes por semana</b>, acorda tossindo cerca de duas noites por mês e evita educação física. Nunca usou nenhuma medicação de manutenção. Ausculta com sibilos expiratórios discretos.",
+ ficha:[["Idade","9 anos"],["SABA/semana","3–4 vezes"],["Despertares","2/mês"],["Controlador","nenhum"]],
+ qs:[
+  {id:"cs1a",t:"caso",q:"Como se classifica o controle da asma desse paciente?",
+   o:["Não controlada — uso de resgate mais de 2 vezes por semana, despertares noturnos e limitação de atividade",
+      "Controlada, pois nunca precisou internar","Controlada, pois os sibilos são discretos",
+      "Não é possível avaliar sem espirometria"],
+   c:0,
+   e:"Os quatro domínios do controle são: sintomas diurnos, despertar noturno, uso de resgate e limitação de atividade. Ele pontua em três — asma não controlada, e a ausência de internação não muda isso.",
+   x:"Nunca ter internado e ter ausculta discreta são achados tranquilizadores demais para quem usa resgate 4 vezes na semana. A espirometria ajuda, mas o controle é uma avaliação <i>clínica</i>."},
+  {id:"cs1b",t:"caso",q:"A conduta farmacológica inicial mais adequada é:",
+   o:["Iniciar corticosteroide inalatório de manutenção e revisar técnica inalatória e controle ambiental",
+      "Aumentar a frequência do salbutamol para uso fixo de 6/6 h",
+      "Iniciar corticoide oral contínuo em dias alternados",
+      "Iniciar LABA isolado para reduzir o uso de salbutamol"],
+   c:0,
+   e:"Ele está sem tratamento anti-inflamatório nenhum. Entrar com CI é o passo que muda a história da doença — junto com técnica inalatória, espaçador e manejo da rinite associada.",
+   x:"Salbutamol de horário fixo trata só o sintoma e mascara a piora. Corticoide oral contínuo em criança é desproporcional e prejudica crescimento. LABA isolado é proibido na asma."}
+ ],
+ fecho:"Criança com rinite alérgica e asma não controlada: trate as duas. E, em toda consulta, peça para ele demonstrar o uso do dispositivo — não pergunte se ele sabe usar."},
+
+{cenario:"Pronto-socorro", titulo:"Crise que não cede depois de três nebulizações",
+ vinheta:"Mulher de 28 anos, asmática, chega com dispneia intensa há 6 horas. Fala <b>em palavras soltas</b>, senta-se inclinada para a frente e usa musculatura acessória. Recebeu três nebulizações com salbutamol sem melhora significativa.",
+ ficha:[["FR","34 irpm"],["FC","128 bpm"],["SpO2","89%"],["PFE","42% previsto"],["PaCO2","44 mmHg"]],
+ qs:[
+  {id:"cs2a",t:"caso",q:"Qual achado é o mais preocupante nesse conjunto?",
+   o:["A PaCO₂ de 44 mmHg, que sendo 'normal' indica fadiga da musculatura respiratória",
+      "A FC de 128 bpm, provavelmente por efeito do salbutamol","A FR de 34 irpm, esperada na crise",
+      "O PFE de 42%, que ainda está acima de 40%"],
+   c:0,
+   e:"Numa crise com esse esforço ventilatório, o esperado é hipocapnia. CO₂ 'normalizando' significa que a bomba respiratória está falhando — é o achado que antecipa a parada.",
+   x:"Taquicardia e taquipneia são esperadas e de fato podem ser em parte do β₂. PFE de 42% é grave, mas é a gasometria que muda a urgência da decisão sobre suporte ventilatório."},
+  {id:"cs2b",t:"caso",q:"Além de manter oxigênio e broncodilatador, quais são as duas próximas medidas farmacológicas?",
+   o:["Corticoide sistêmico precoce e sulfato de magnésio intravenoso",
+      "Sedação leve e antitussígeno","Antibiótico intravenoso e mucolítico",
+      "Furosemida intravenosa e digoxina"],
+   c:0,
+   e:"Corticoide sistêmico o quanto antes (não alivia agora, mas impede a fase tardia e a recidiva) e sulfato de magnésio IV na crise grave refratária. Associar ipratrópio nebulizado ao salbutamol também reduz internação.",
+   x:"Sedativo em paciente em fadiga respiratória pode precipitar parada. Não há indicação de antibiótico sem sinal de infecção, e furosemida/digoxina pertencem a outro cenário (insuficiência cardíaca)."}
+ ],
+ fecho:"Ausência de melhora após três nebulizações + PaCO₂ normal + tórax em esforço = vaga em unidade de maior complexidade, com a equipe preparada para ventilação."},
+
+{cenario:"Ambulatório de pneumologia", titulo:"Ele parou de fumar e começou a vomitar",
+ vinheta:"Homem de 66 anos com DPOC, em uso de <b>teofilina oral</b> há 5 anos, tiotrópio e formoterol. Parou de fumar há 3 semanas e vem apresentando náuseas, vômitos, insônia e palpitações. Ao exame, extrassístoles frequentes.",
+ ficha:[["Teofilina sérica","132 µmol/L"],["FC","112 bpm, irregular"],["Cigarros","0 há 3 semanas"],["Dose teofilina","inalterada"]],
+ qs:[
+  {id:"cs3a",t:"caso",q:"Qual a explicação farmacocinética do quadro?",
+   o:["A fumaça de cigarro induzia o CYP1A2; com a cessação, o metabolismo da teofilina caiu e o nível sérico subiu",
+      "A cessação do tabagismo aumentou a absorção intestinal da teofilina",
+      "A teofilina passou a ser eliminada exclusivamente pelos rins","O tiotrópio inibiu o metabolismo da teofilina"],
+   c:0,
+   e:"É a pegadinha clássica: fumante precisa de dose maior; ao parar, a mesma dose vira dose tóxica. O nível de 132 µmol/L está acima da faixa terapêutica de 30–100 µmol/L.",
+   x:"Não há mudança de absorção nem de via de eliminação. O tiotrópio é inalatório, com baixa absorção sistêmica, e não interfere no CYP450."},
+  {id:"cs3b",t:"caso",q:"Qual é o risco maior se nada for feito?",
+   o:["Arritmias graves e crises convulsivas","Candidíase orofaríngea",
+      "Retenção urinária","Hipercalemia grave"],
+   c:0,
+   e:"São as manifestações que matam na intoxicação por teofilina — e podem aparecer sem os sintomas gastrointestinais servirem de aviso. Conduta: reduzir/suspender a dose e dosar o nível sérico.",
+   x:"Candidíase é de corticoide inalatório, retenção urinária de antimuscarínico, e o β₂ causa <i>hipo</i>calemia, não hipercalemia."}
+ ],
+ fecho:"Sempre que um paciente em uso de teofilina mudar hábito de fumo, iniciar antibiótico (ciprofloxacino, macrolídeo) ou descompensar do coração ou do fígado, pense em rever a dose."},
+
+{cenario:"Unidade básica de saúde", titulo:"Rouquidão e placas brancas na boca",
+ vinheta:"Mulher de 45 anos, asmática bem controlada com fluticasona 250 mcg 2×/dia. Queixa-se de <b>rouquidão progressiva</b> há um mês. Ao exame, placas esbranquiçadas destacáveis na orofaringe. Ela usa o aerossol direto na boca, sem espaçador, e não enxágua depois.",
+ ficha:[["Fármaco","fluticasona 250 mcg 2×/dia"],["Espaçador","não usa"],["Enxágue","não faz"],["Controle da asma","bom"]],
+ qs:[
+  {id:"cs4a",t:"caso",q:"Qual é o diagnóstico e a origem do problema?",
+   o:["Candidíase orofaríngea e disfonia por depósito local do corticoide inalatório",
+      "Reação alérgica sistêmica ao propelente","Efeito adverso do LABA associado",
+      "Infecção bacteriana da orofaringe por imunossupressão sistêmica"],
+   c:0,
+   e:"São os dois efeitos adversos locais clássicos do CI. A disfonia vem de miopatia da musculatura laríngea; a candidíase, do depósito de corticoide na mucosa, que reduz a defesa local.",
+   x:"Não é reação alérgica nem bacteriana, e o LABA não causa candidíase. A imunossupressão aqui é <i>local</i>, não sistêmica."},
+  {id:"cs4b",t:"caso",q:"A conduta correta é:",
+   o:["Tratar a candidíase, introduzir espaçador e orientar enxágue bucal, mantendo o corticoide inalatório",
+      "Suspender o corticoide inalatório definitivamente","Trocar por corticoide oral contínuo",
+      "Reduzir a dose pela metade sem outras medidas"],
+   c:0,
+   e:"O problema é técnico, não da indicação. Espaçador e enxágue resolvem a maior parte dos casos — e ela está bem controlada, então tirar o CI seria trocar um efeito local tratável por descontrole da doença.",
+   x:"Suspender ou trocar por corticoide oral piora muito o balanço risco-benefício. Reduzir dose sem corrigir a técnica não ataca a causa (e pode perder o controle)."}
+ ],
+ fecho:"Se quiser reduzir ainda mais o risco, existe a opção de ciclesonida — pró-fármaco ativado por esterases no pulmão, com menor atividade na orofaringe."},
+
+{cenario:"Emergência", titulo:"Edema de língua sem urticária",
+ vinheta:"Homem de 52 anos chega com edema de lábios e língua iniciado há 2 horas, com sensação de aperto na garganta. <b>Não há urticária nem prurido.</b> Nega alergias. Usa enalapril há 8 meses para hipertensão. Recebeu hidrocortisona e prometazina, sem melhora.",
+ ficha:[["PA","148 × 92 mmHg"],["Urticária","ausente"],["Prurido","ausente"],["Fármaco","enalapril há 8 meses"]],
+ qs:[
+  {id:"cs5a",t:"caso",q:"Qual é o mediador mais provável desse angioedema?",
+   o:["Bradicinina, acumulada pela inibição da enzima conversora de angiotensina",
+      "Histamina liberada por mastócitos","IgE específica contra o enalapril",
+      "Complemento ativado pela via clássica"],
+   c:0,
+   e:"A ausência de urticária e prurido é a pista: não é histaminérgico. A ECA degrada bradicinina — inibi-la faz a bradicinina se acumular. Pode surgir meses após o início do fármaco, o que confunde muita gente.",
+   x:"Se fosse histamina, haveria urticária e prurido, e o anti-histamínico teria funcionado. Não é reação IgE-mediada nem por complemento (essa seria o angioedema hereditário, por deficiência de inibidor de C1)."},
+  {id:"cs5b",t:"caso",q:"A conduta inclui:",
+   o:["Vigilância estreita da via aérea, suspensão definitiva do enalapril e, em casos selecionados, icatibanto",
+      "Manter o enalapril e aumentar a dose de corticoide","Trocar o enalapril por captopril",
+      "Repetir a prometazina a cada 4 horas até melhora"],
+   c:0,
+   e:"Via aérea é a prioridade absoluta — pode evoluir para obstrução. O IECA é suspenso para sempre e nunca reintroduzido. Como o mecanismo é bradicinínico, o icatibanto (antagonista do receptor B₂) é opção nos casos graves.",
+   x:"Captopril é outro IECA — mesmo mecanismo, mesmo risco. Corticoide e anti-histamínico em dose maior continuam não atacando a bradicinina."}
+ ],
+ fecho:"Depois da alta, o substituto seguro é um antagonista do receptor de angiotensina (losartana), que não mexe na degradação da bradicinina."},
+
+{cenario:"Emergência pediátrica", titulo:"Urticária, chiado e hipotensão depois do almoço",
+ vinheta:"Menina de 6 anos, 20 kg, começa 10 minutos após comer um doce com amendoim: urticária generalizada, vômito, sibilância e sonolência. Está pálida e taquicárdica.",
+ ficha:[["Peso","20 kg"],["PA","76 × 40 mmHg"],["SpO2","91%"],["Início","10 min pós-ingestão"]],
+ qs:[
+  {id:"cs6a",t:"caso",q:"Qual a primeira medida e a dose correta?",
+   o:["Adrenalina 1:1000, 0,2 mg, intramuscular no vasto lateral da coxa",
+      "Hidrocortisona intravenosa em dose alta","Difenidramina intramuscular",
+      "Salbutamol nebulizado isolado"],
+   c:0,
+   e:"0,01 mg/kg × 20 kg = 0,2 mg de adrenalina 1:1000, IM no vasto lateral, repetível a cada 5–15 min. Atraso na adrenalina é o principal preditor de óbito.",
+   x:"Corticoide e anti-histamínico são adjuvantes e não revertem hipotensão nem edema de via aérea. O salbutamol trata só o broncoespasmo, e essa criança está chocando."},
+  {id:"cs6b",t:"caso",q:"Por que a adrenalina resolve hipotensão, broncoespasmo e edema ao mesmo tempo?",
+   o:["Porque ativa α₁ (vasoconstrição e redução do edema), β₁ (débito cardíaco) e β₂ (broncodilatação e bloqueio da degranulação)",
+      "Porque bloqueia receptores H₁ e H₂ simultaneamente",
+      "Porque inibe a síntese de leucotrienos","Porque neutraliza a IgE circulante"],
+   c:0,
+   e:"É o fármaco certo justamente por não ser seletivo: cada braço adrenérgico cobre um pedaço da fisiopatologia da anafilaxia.",
+   x:"Bloquear H₁/H₂ é papel dos anti-histamínicos. Inibir leucotrienos é a via dos lucastes/zileutona. Neutralizar IgE é o omalizumabe — nenhum deles serve na emergência."}
+ ],
+ fecho:"Depois da estabilização: observação por reação bifásica, prescrição de autoinjetor de adrenalina, plano de ação por escrito e encaminhamento à alergologia."},
+
+{cenario:"Ambulatório de pneumologia", titulo:"Duas exacerbações no ano apesar da dupla broncodilatação",
+ vinheta:"Homem de 68 anos, ex-tabagista de 50 maços-ano, com DPOC. Em uso regular de <b>tiotrópio + formoterol</b>. Teve duas exacerbações moderadas nos últimos 12 meses, uma delas com internação. Dispneia ao andar no plano.",
+ ficha:[["VEF1/CVF pós-BD","0,58"],["VEF1","44% previsto"],["Eosinófilos","340/µL"],["Exacerbações/ano","2 (1 internação)"]],
+ qs:[
+  {id:"cs7a",t:"caso",q:"O próximo passo farmacológico mais apropriado é:",
+   o:["Escalonar para terapia tripla, acrescentando corticosteroide inalatório",
+      "Suspender o tiotrópio e manter apenas o formoterol","Iniciar corticoide oral contínuo",
+      "Iniciar antitussígeno de horário"],
+   c:0,
+   e:"Eosinófilos de 340/µL somados a exacerbações apesar de LABA+LAMA é exatamente o perfil em que o corticoide inalatório agrega — a tripla reduz exacerbações e, em subgrupos, mortalidade. O contraponto é o risco de pneumonia, que precisa ser conversado.",
+   x:"Retirar o LAMA piora a broncodilatação. Corticoide oral contínuo na DPOC traz muito dano para pouco ganho. Antitussígeno em DPOC com secreção é prejudicial."},
+  {id:"cs7b",t:"caso",q:"Além do ajuste farmacológico, quais medidas têm impacto comprovado nesse paciente?",
+   o:["Reabilitação pulmonar, vacinação (influenza, pneumococo, COVID-19) e manutenção da abstinência do tabaco",
+      "Repouso absoluto e restrição de atividade física","Mucolítico de horário fixo isoladamente",
+      "Antibiótico profilático em todo resfriado"],
+   c:0,
+   e:"Reabilitação melhora dispneia, capacidade de exercício e qualidade de vida — especialmente após exacerbação. Vacinação reduz exacerbação e mortalidade. E manter a abstinência continua sendo a medida de maior impacto.",
+   x:"Repouso acelera o descondicionamento e piora a dispneia. Mucolítico isolado tem efeito marginal. Antibiótico em todo resfriado seleciona resistência sem benefício."}
+ ],
+ fecho:"Antes de escalonar, confira técnica inalatória e adesão — parte das 'falhas de tratamento' na DPOC é dispositivo usado errado."},
+
+{cenario:"Neonatologia", titulo:"Prematuro de 28 semanas com desconforto progressivo",
+ vinheta:"Recém-nascido de 28 semanas, parto de urgência sem tempo para corticoide antenatal completo. Nas primeiras horas: taquipneia, gemência, retração intercostal e batimento de asa de nariz. Radiografia com infiltrado reticulogranular difuso e broncogramas aéreos.",
+ ficha:[["Idade gestacional","28 semanas"],["Peso","1.050 g"],["FiO2 necessária","0,45"],["Corticoide antenatal","incompleto"]],
+ qs:[
+  {id:"cs8a",t:"caso",q:"Qual é a base fisiopatológica do quadro?",
+   o:["Deficiência de surfactante pulmonar, com aumento da tensão superficial e colapso alveolar",
+      "Excesso de surfactante, com hiperdistensão alveolar","Obstrução brônquica por muco espesso",
+      "Destruição de fibras de elastina por proteases"],
+   c:0,
+   e:"O pulmão imaturo ainda não produz surfactante suficiente. Pela Lei de Laplace, a tensão superficial alta faz os alvéolos menores colabarem — atelectasias progressivas, o padrão reticulogranular da radiografia.",
+   x:"Muco espesso sugere fibrose cística. Destruição de elastina é o enfisema do adulto — nada a ver com o prematuro."},
+  {id:"cs8b",t:"caso",q:"Qual é o tratamento específico e a via de administração?",
+   o:["Surfactante exógeno (beractanto ou poractanto alfa) por cânula endotraqueal",
+      "Surfactante por via intravenosa","Corticoide inalatório em aerossol","Adrenalina intramuscular"],
+   c:0,
+   e:"O surfactante precisa chegar à superfície alveolar, e a única via eficaz é a instilação endotraqueal direta. A prevenção, quando há tempo, é o corticoide antenatal à gestante.",
+   x:"Via intravenosa não entrega o fármaco ao alvéolo. Corticoide inalatório e adrenalina não têm papel no tratamento agudo dessa síndrome."}
+ ],
+ fecho:"Guarde o par: <b>corticoide antenatal previne</b>, <b>surfactante endotraqueal trata</b>."},
+
+{cenario:"Ambulatório de clínica médica", titulo:"Tosse seca há dois meses, exame normal",
+ vinheta:"Mulher de 58 anos, hipertensa, iniciou <b>enalapril</b> há 3 meses. Há 2 meses tem tosse seca persistente, sem febre, sem expectoração, sem dispneia. Exame físico e radiografia de tórax normais. Não fuma.",
+ ficha:[["Fármaco","enalapril há 3 meses"],["Tosse","seca, 2 meses"],["Rx tórax","normal"],["Tabagismo","não"]],
+ qs:[
+  {id:"cs9a",t:"caso",q:"O mecanismo da tosse nesse caso é:",
+   o:["Acúmulo de bradicinina e substância P na via aérea, por inibição da ECA",
+      "Broncoespasmo por bloqueio de receptores β₂","Refluxo gastroesofágico induzido pelo fármaco",
+      "Fibrose pulmonar induzida pelo enalapril"],
+   c:0,
+   e:"A ECA também degrada bradicinina e substância P. Inibi-la faz esses mediadores se acumularem e sensibilizarem as fibras C da via aérea. É efeito de classe, mais frequente em mulheres.",
+   x:"Bloqueio de β₂ é o betabloqueador. O IECA não causa DRGE nem fibrose pulmonar."},
+  {id:"cs9b",t:"caso",q:"A melhor conduta é:",
+   o:["Substituir o enalapril por losartana e reavaliar em algumas semanas",
+      "Associar codeína para suprimir a tosse","Associar corticoide inalatório",
+      "Solicitar tomografia de tórax e broncoscopia antes de qualquer mudança"],
+   c:0,
+   e:"Os antagonistas do receptor de angiotensina não inibem a ECA e por isso não acumulam bradicinina. A tosse costuma resolver em dias a semanas após a troca — e a resolução confirma o diagnóstico.",
+   x:"Antitussígeno mascara um efeito adverso evitável. Corticoide inalatório não atua na via bradicinínica. Investigação invasiva antes de retirar o fármaco suspeito é inverter a ordem lógica."}
+ ],
+ fecho:"Regra prática: tosse seca nova em quem usa IECA é IECA até prova em contrário — e o teste diagnóstico é a retirada."},
+
+{cenario:"Ambulatório de asma grave", titulo:"Quatro cursos de corticoide oral em um ano",
+ vinheta:"Mulher de 34 anos com asma desde a infância, em uso de dose alta de CI-LABA com boa adesão e técnica conferida. Teve <b>4 exacerbações com corticoide oral</b> em 12 meses e uma internação. Testes cutâneos positivos para ácaro e barata; IgE total elevada; eosinófilos 280/µL.",
+ ficha:[["Etapa atual","CI-LABA dose alta"],["Exacerbações/ano","4"],["IgE total","elevada"],["Eosinófilos","280/µL"],["Adesão/técnica","confirmadas"]],
+ qs:[
+  {id:"cs10a",t:"caso",q:"Antes de indicar um biológico, o que é obrigatório confirmar?",
+   o:["Adesão, técnica inalatória correta, comorbidades tratadas e exposição ambiental controlada — ou seja, que é asma grave de verdade, e não asma de difícil controle",
+      "Apenas o valor da IgE total","Apenas a espirometria",
+      "Nada: exacerbações de repetição já indicam biológico automaticamente"],
+   c:0,
+   e:"A distinção entre <b>asma de difícil controle</b> (por adesão, técnica, comorbidade, exposição) e <b>asma grave</b> (que persiste apesar de tudo isso otimizado) é o eixo das recomendações brasileiras de asma grave. Biológico é caro e não conserta técnica inalatória errada.",
+   x:"IgE e espirometria isoladas não fecham a indicação. E indicar biológico automaticamente pula justamente a etapa que mais resolve na prática."},
+  {id:"cs10b",t:"caso",q:"Confirmada asma alérgica grave, com sensibilização a aeroalérgenos e IgE elevada, o biológico mais adequado é:",
+   o:["Omalizumabe (anti-IgE)","Icatibanto","Roflumilaste","Teofilina de liberação prolongada"],
+   c:0,
+   e:"Perfil alérgico com IgE elevada e sensibilização documentada é a indicação clássica do omalizumabe. Se o perfil fosse predominantemente eosinofílico sem alergia clara, a escolha penderia para anti-IL-5.",
+   x:"Icatibanto é para angioedema bradicinínico, roflumilaste é da DPOC, e teofilina não é biológico nem resolve asma grave refratária."}
+ ],
+ fecho:"No registro brasileiro de asma grave, menos da metade dos adultos elegíveis estava em uso de biológico — acesso ainda é a principal barreira."},
+
+{cenario:"Emergência", titulo:"DPOC exacerbada com sonolência",
+ vinheta:"Homem de 74 anos com DPOC grave chega com piora da dispneia e escarro purulento há 3 dias. Recebeu oxigênio sob máscara com alto fluxo na ambulância. Agora está sonolento, com SpO₂ de 99%.",
+ ficha:[["SpO2 atual","99%"],["pH","7,26"],["PaCO2","72 mmHg"],["Escarro","purulento"]],
+ qs:[
+  {id:"cs11a",t:"caso",q:"Qual erro provavelmente contribuiu para a piora do nível de consciência?",
+   o:["Oxigênio em excesso, sem titulação — na DPOC o alvo é SpO₂ de 88% a 92%",
+      "Oxigênio insuficiente, já que 99% ainda é baixo","Uso de broncodilatador inalatório",
+      "Posicionamento em decúbito elevado"],
+   c:0,
+   e:"Hiperóxia na DPOC retentora piora a hipercapnia (alteração da relação V/Q e efeito Haldane). O quadro agora é acidose respiratória com narcose por CO₂. Titule o oxigênio para 88–92%.",
+   x:"99% é excesso, não falta. Broncodilatador e decúbito elevado são condutas corretas."},
+  {id:"cs11b",t:"caso",q:"Além de ajustar o oxigênio, o tratamento inclui:",
+   o:["Ventilação não invasiva, corticoide sistêmico por 5 dias, broncodilatadores de curta ação e antibiótico pela purulência",
+      "Sedação para conforto e observação","Corticoide inalatório em dose alta como única medida anti-inflamatória",
+      "Furosemida intravenosa e restrição hídrica"],
+   c:0,
+   e:"VNI é indicação clássica na exacerbação com acidose respiratória e reduz intubação e mortalidade. Corticoide sistêmico por 5 dias, SABA/SAMA intensificados, e antibiótico porque há purulência do escarro.",
+   x:"Sedação em hipercapnia é perigosa. Corticoide inalatório não substitui o sistêmico na exacerbação. Furosemida é para congestão — não é este o quadro."}
+ ],
+ fecho:"Nesse cenário, escores como DECAF e NEWS2 ajudam a estratificar risco de deterioração e de mortalidade na admissão."},
+
+{cenario:"Ambulatório de adolescentes", titulo:"Só passa mal no treino",
+ vinheta:"Rapaz de 17 anos, joga futebol 3 vezes por semana. Refere tosse, chiado e aperto no peito <b>durante e logo após o treino</b>, que passam em 20–30 minutos de repouso. Fora isso, assintomático. Nunca usou medicação de controle; usa salbutamol do amigo às vezes.",
+ ficha:[["Sintomas","só ao esforço"],["Frequência","3×/semana"],["Controlador","nenhum"],["Espirometria basal","normal"]],
+ qs:[
+  {id:"cs12a",t:"caso",q:"Espirometria basal normal exclui asma nesse paciente?",
+   o:["Não — na asma a obstrução é variável, e a espirometria pode ser normal entre crises; pode-se investigar com teste de broncoprovocação ou variabilidade do PFE",
+      "Sim, espirometria normal exclui o diagnóstico","Sim, desde que ele não tenha história familiar",
+      "Não, mas só a tomografia pode confirmar"],
+   c:0,
+   e:"Variabilidade é a marca da asma. Espirometria normal em paciente assintomático no momento do exame é comum — por isso existem a broncoprovocação e o monitoramento do pico de fluxo.",
+   x:"Excluir asma por uma espirometria normal é erro frequente. E tomografia não é o exame para confirmar asma."},
+  {id:"cs12b",t:"caso",q:"A conduta mais alinhada às diretrizes atuais é:",
+   o:["Iniciar tratamento contendo corticoide inalatório (por exemplo, CI-formoterol conforme necessidade) e orientar aquecimento antes do treino",
+      "Manter apenas salbutamol antes do treino, sem controlador","Iniciar montelucaste isolado como única terapia",
+      "Suspender a prática esportiva"],
+   c:0,
+   e:"Sintomas três vezes por semana não é asma 'só de exercício' sob controle — é asma não controlada. E as diretrizes atuais não aceitam adolescente tratado apenas com SABA.",
+   x:"Usar salbutamol emprestado sem controlador é exatamente o padrão associado a morte por asma. Montelucaste isolado é inferior ao CI. E suspender o esporte é tratar o paciente pela doença, não a doença — com tratamento adequado, ele joga."}
+ ],
+ fecho:"Bônus de segurança: oriente que ele tenha o próprio dispositivo. Dividir bombinha é comum entre adolescentes e atrasa o diagnóstico."}
+];
+
+/* rótulos amigáveis para o painel de resultado */
+(function(){
+  var ROT = {m1:"Asma — conceitos",m2:"Fases da crise",m3:"Patogênese Th2",m4:"Agonistas β₂",
+    m5:"Antimuscarínicos",m6:"Metilxantinas",m7:"Antileucotrienos",m8:"Biológicos",
+    m9:"Glicocorticoides",m10:"Escalonamento",m11:"Crise grave",m12:"Anafilaxia/angioedema",
+    m13:"DPOC",m14:"Asma × DPOC",m15:"Surfactante e tosse",sim:"Simulado",caso:"Casos clínicos"};
+  BANCO.forEach(function(q){ q.rot = ROT[q.t] || q.t; });
+  CASOS.forEach(function(c){ c.qs.forEach(function(q){ q.rot = ROT.caso; }); });
+})();
+
+window.__montar();
+</script>
